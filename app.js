@@ -6,6 +6,7 @@ const app = Vue.createApp({
                 learn: 'Learn Vue!',
                 master: 'Master Vue!'
             },
+            htmlElemtExmp: '<h2>HTML H2</h2>',
             vueLink: "#przykładowyLink"
         }
     },
@@ -14,9 +15,10 @@ const app = Vue.createApp({
             const randomNuber = Math.random();
             if (randomNuber < 0.5) {
                 return this.objExmamp.learn;
+                // return 'Learn Vue!';
             } else {
                 return this.objExmamp.master;
-                return 'Master Vue!';
+                // return 'Master Vue!';
             }
         }
     }
