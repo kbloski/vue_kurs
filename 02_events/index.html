@@ -23,8 +23,18 @@
         </div>
         <hr />
         <div>
-            <button v-on:click="setDescription('Other description')">Set other description</button>
-            <p>{{description}}</p>
+          <h2>Set your name</h2>
+          <p>{{name}}</p>
+          <input type="text" v-on:input="setName" v-bind:value="name">
+        </div>
+        <hr />
+        <div>
+          <h2>Form</h2>
+          <!-- <form v-on:submit.prevent="submitForm"> - modyfikator który działa tak samo jak ręczne wywołanie event.preventDefault() -->
+          <form v-on:submit="submitForm">
+            <input type="text" />
+            <button type="submit">Prześlij</button>
+          </form>
         </div>
       </div>
     </div>
