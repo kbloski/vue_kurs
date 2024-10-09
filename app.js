@@ -1,10 +1,11 @@
 const app = Vue.createApp({
     data (){
-        const goals = ['goal1', 'goal2','goal3']
         return {
-            goals
+            titleExamp: 'Przykładowy tytuł',
+            link: "#przykładowyLink"
         }
-    }
+    },
+    methods: 
 });
 
 app.mount('#app');
