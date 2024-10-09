@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../00_style/style.css">
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js" defer></script>
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <div id="events">
+      <div>
+        <div>
+          <h2>Events in action</h2>
+          <hr />
+          <button v-on:click="counter++">Add</button>
+          <button v-on:click="counter = Number(counter - 2)">Reduce</button> 
+          <!-- v-atributes - przyjmują proste wyrażenia javascript -->
+          <button v-on:click="clearCounter()">Reset</button>
+          <p>Result: {{ counter }}</p>
+        </div>
+        <hr />
+        <div>
+            <button v-on:click="setDescription('Other description')">Set other description</button>
+            <p>{{description}}</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
