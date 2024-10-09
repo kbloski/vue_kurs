@@ -2,7 +2,10 @@ const app = Vue.createApp({
     data (){
         return {
             titleExamp: 'Przykładowy tytuł',
-            arrExmamp: ['a1','b2','c3'],
+            objExmamp: {
+                learn: 'Learn Vue!',
+                master: 'Master Vue!'
+            },
             vueLink: "#przykładowyLink"
         }
     },
@@ -10,9 +13,10 @@ const app = Vue.createApp({
         outputGoals(){
             const randomNuber = Math.random();
             if (randomNuber < 0.5) {
-                return 'Learn Vue!' + this.arrExmamp[0];
+                return this.objExmamp.learn;
             } else {
-                return 'Master Vue!' + this.arrExmamp[1]
+                return this.objExmamp.master;
+                return 'Master Vue!';
             }
         }
     }
