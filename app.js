@@ -2,10 +2,19 @@ const app = Vue.createApp({
     data (){
         return {
             titleExamp: 'Przykładowy tytuł',
-            link: "#przykładowyLink"
+            vueLink: "#przykładowyLink"
         }
     },
-    methods: 
+    methods: {
+        outputGoals(){
+            const randomNuber = Math.random();
+            if (randomNuber < 0.5) {
+                return 'Learn Vue!'
+            } else {
+                return 'Master Vue!'
+            }
+        }
+    }
 });
 
 app.mount('#app');

@@ -10,15 +10,19 @@
   </head>
   <body>
     <div id="app">
-      <p>
-        {{titleExamp}} <br />
-        { {} } - ta składania ustawia wartości pomiędzy tagami
-      </p>
-      <a v-bind:href="link"
-        >Przykładowy link
-        <br />
-        v-bind:atrybut - ustawia wartości dla atrybutów
-      </a>
+        <div>
+            <!-- { {} } - ta składania ustawia wartości pomiędzy tagami -->
+            {{titleExamp}} 
+        </div>
+        <div>
+            <!-- v-bind:atrybut - ustawia wartości dla atrybutów -->
+            <a v-bind:href="vueLink">v-bind:atribiute</a>
+        </div>
+        <div>
+            Methods: 
+            {{outputGoals()}}
+            {{ Math.random() }}
+        </div>
     </div>
   </body>
 </html>
