@@ -2,15 +2,18 @@ const vueApp = Vue.createApp({
     data(){
         return {
             counter: 0,
-            name: 'Default name'
+            name: '',
+            confirmedName: 'Default name'
         }
     },
     methods: {
         clearCounter(){
             this.counter = 0
         },
-        setName( event ){
-            this.name = event.target.value
+        confirmInputName( event ){
+            const value =  event.target.value
+            if (value.length >= 3) this.confirmedName = value
+            
         },
         submitForm(event){
             event.preventDefault();

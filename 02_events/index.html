@@ -19,13 +19,15 @@
           <button v-on:click="counter = Number(counter - 2)">Reduce</button> 
           <!-- v-atributes - przyjmują proste wyrażenia javascript -->
           <button v-on:click="clearCounter()">Reset</button>
+          <!-- v-once  zapisuje stan poczatkowy i go nie modyfikuje przy następnych wywołaniach -->
+          <p v-once>Start counter: {{ counter }}</p> 
           <p>Result: {{ counter }}</p>
         </div>
         <hr />
         <div>
           <h2>Set your name</h2>
-          <p>{{name}}</p>
-          <input type="text" v-on:input="setName" v-bind:value="name">
+          <p>{{confirmedName}}</p>
+          <input type="text" v-on:input="confirmInputName" v-bind:value="confirmedName">
         </div>
         <hr />
         <div>
