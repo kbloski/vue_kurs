@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../00_style/style.css">
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js" defer></script>
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <div id="app">
+        <h1>{{ getFullTitle() }}</h1>
+        <h2>{{ fullname }}</h2>
+        <div>
+          <button v-on:click="counter++">+</button>
+          <div>{{ counter }}</div>
+          <button v-on:click="counter--">-</button>
+        </div>
+        <div>
+          123
+        </div>
+    </div>
+  </body>
+</html>

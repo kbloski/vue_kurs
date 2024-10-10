@@ -10,10 +10,8 @@ const vueApp = Vue.createApp({
         clearCounter(){
             this.counter = 0
         },
-        confirmInputName( event ){
-            const value =  event.target.value
-            if (value.length >= 3) this.confirmedName = value
-            
+        resetInput(){
+            this.confirmedName = '';
         },
         submitForm(event){
             event.preventDefault();

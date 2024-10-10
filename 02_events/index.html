@@ -27,7 +27,10 @@
         <div>
           <h2>Set your name</h2>
           <p>{{confirmedName}}</p>
-          <input type="text" v-on:input="confirmInputName" v-bind:value="confirmedName">
+
+          <input type="text" v-model="confirmedName">
+
+          <button v-on:click="resetInput">Clear</button>
         </div>
         <hr />
         <div>
@@ -35,6 +38,7 @@
           <!-- <form v-on:submit.prevent="submitForm"> - modyfikator który działa tak samo jak ręczne wywołanie event.preventDefault() -->
           <form v-on:submit="submitForm">
             <input type="text" />
+            <button type="submit">Prześlij</button>
             <button type="submit">Prześlij</button>
           </form>
         </div>
