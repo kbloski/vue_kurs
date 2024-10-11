@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="./style.css" />
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js" defer></script>
+        <script src="./app.js" defer></script>
+    </head>
+    <body>
+        <div id="appVue">
+            <div>
+                <form>
+                    <label
+                        >Add goal <input type="text" v-model="inputGoal"
+                    /></label>
+                    <button type="submit" @click="addGoal">Add</button>
+                </form>
+            </div>
+            <div>
+                Goals list v-if:
+                <p v-if="!goals.length">Your goals list is empty</p>
+                <!-- <ul v-else-if="goals.length"> -->
+                <ul v-else>
+                    <li v-for="goal in goals">{{goal}}</li>
+                </ul>
+            </div>
+            <div>
+                Goals list v-show:
+                <p v-show="!goals.length">Your goals list is empty</p>
+                <ul v-show="goals.length">
+                    <li
+                        v-for="(goal,index) of goals"
+                        v-bind:key="goal"
+                        @click="deleteGoal(index)"
+                    >
+                        {{goal}} - {{index}}
+                        <input type="text" @click.stop />
+                        <button @click="deleteGoal(index)">Delete</button>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                For on object
+                <ul>
+                    <li v-for="(value,key,index) in user">
+                        #{{index}} - {{key}}: {{value}}
+                    </li>
+                </ul>
+            </div>
+            <div>
+                For on numbers
+                <ul>
+                    <li v-for="num in 5">{{num}}</li>
+                </ul>
+            </div>
+            <div>
+                Streszczenie:
+                <p>
+                    v-if, v-else-if, v-else - muszą występować w elementach html
+                    zaraz po sobie ponieważ v-else-if, v-else czerpią informacje
+                    z sąsiedzniego elementu, ta funkcja ingeruje w
+                    dom, ona naprawdę usuwa i dodaje elementy do drzewa dom
+                </p>
+                <p>
+                    v-show='warunek' - ukrywa elementy gdy warunek nie jest
+                    spełniony i pokazuje gdy jest spełniony
+                </p>
+                <pre>
+                    v-for="(goal,index) of goals" // no use
+
+                    v-for="(goal,index) in goals" - po listach
+                    v-for="(value,key,index) in user" - po obiektach
+                    v-for="num in 5" - po liczbach
+                </pre>  
+                <p>
+                  v-bind:key="goal" - dodaje unikalność dla każdego elementu generowanego za pomocą v-for, dzięki czemu taki element jak input zachowuje swoje miejsce nawet w sytuacji, gdy usuwamy element poprzedni
+                </p>
+            </div>
+        </div>
+    </body>
+</html>
