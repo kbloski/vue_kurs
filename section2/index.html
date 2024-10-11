@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js" defer></script>
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <div id="appVue">
+      <div>
+        <div>Random id - function: {{Math.round(Math.random()*100)}}, </div>
+        <div>Random id - compound: {{ randomId }}, </div>
+        <div>Name: {{ name }}</div>
+        <div>Surname: {{ surname }}</div>
+        <div>Fullname: {{ fullname }}</div>
+        <div v-html="vhtmlCode"></div>
+      </div>
+      <div>
+        <div>Change data form</div>
+        <form>
+          <!-- <div>
+            <label>
+              Name <input type="text" v-bind:value="name" v-on:input="setName" /></label>
+          </div> -->
+          <div>
+            <label>Name <input type="text" v-model="this.name" /></label>
+          </div>
+          <div>
+            <label>Surname <input type="text" v-model="this.surname" /></label>
+          </div>
+          <div>
+            <button type="submit" v-on:click="submitForm">Prześlij</button>
+          </div>
+        </form>
+      </div>
+      <div>
+        Legenda:
+        <p>{ { } } - ta składania ustawia wartości pomiędzy tagami, pomiędzy tymi tagami można umieszczać prosty kod js</p>
+        <p>v-bind:atrybut="prosty_kod_js" - ustawia wartości dla atrybutów</p>
+        <p>v-on:click="prosty_kod_js" - wywołuje coś na zdarzenie kliknięcia</p>
+        <p>v-html="" wstawiając coś do html również interpretuje znaczniki w stringu</p>
+        <p> 
+          v-on === @ 
+          <br> v-bind === :
+        </p>
+        <p>v-on:input + v-bind:value === v-mode=" "</p>
+      </div>
+      <div>
+        <div>Streszczenie</div>
+        <p> 
+          data(){}
+          <br>Jest to obiekt, który przechowuje dane aplikacji. Dane są reaktywne, co oznacza, że jeśli wartości w data zostaną zmienione, Vue automatycznie odświeży widok. 
+        </p>
+        <p> 
+          watch: {}
+          <br>Obserwuje zmiany wartości w data lub computed i wykonuje funkcję, gdy nastąpi zmiana.
+        </p>
+        <p> 
+          computed: {}
+          <br>Służy do definiowania reaktywnych właściwości, które są automatycznie przeliczane, kiedy zależne dane ulegną zmianie.
+          <br>Wartość computed jest pamiętana (ang. cached), dopóki zależne dane nie zmienią się.
+        </p>
+        <p> 
+          methods: {}
+          <br>Zawiera funkcje, które można wywołać w szablonie lub w kodzie, ale w przeciwieństwie do computed, nie są one pamiętane (cachowane).
+          Używane do logiki, która ma być wywoływana na żądanie, np. w odpowiedzi na zdarzenia.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
