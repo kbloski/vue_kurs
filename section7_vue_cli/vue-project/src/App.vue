@@ -2,13 +2,16 @@
   <section>
     <header>My Friends</header>
     <ul v-for="friend in friends" v-bind:key="friend.id">
-      <li>{{ friend.id }}</li>
+      <friend-contact :name="friend.name" :phone-number="friend.phone" :email-address="friend.email" :isFavorite="friend.isFavorite"></friend-contact>
     </ul>
   </section>
 </template>
 
 <script lang="ts">
+import FriendContact from './components/FriendContact.vue';
+
 export default {
+ 
   data() {
     return {
       friends: [
@@ -17,12 +20,14 @@ export default {
           name: "Manuel Lorenz ",
           phone: "01231232131",
           email: "manuel@local.host",
+          isFavorite: '1'
         },
         {
           id: "julie",
           name: "Julie Julie ",
           phone: "01231232131",
           email: "Julie@local.host",
+          isFavorite: '0'
         },
       ],
     };
