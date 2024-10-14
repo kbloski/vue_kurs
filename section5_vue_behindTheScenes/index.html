@@ -10,6 +10,12 @@
 <body>
     <div id="app">
         <h1>{{ name }} </h1>
+        <h2>Data:</h2>
+        <p>
+            {{ message }}
+        </p>
+        <input type="text" ref="userText"></input>
+        <button @click="setText">Set text</button>
     </div>
 </body>
 </html>

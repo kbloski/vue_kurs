@@ -1,7 +1,14 @@
 const app = Vue.createApp({
     data(){
         return {
-            name: 'Test name'
+            name: "Test application",
+            userTextInput: '',
+            message: ''
+        };
+    },
+    methods: {
+        setText(){
+            this.message = this.$refs.userText.value;
         }
     }
 });
