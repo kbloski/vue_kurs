@@ -15,11 +15,22 @@
         v-on:delete-contact="deleteFriend"
       ></friend-contact>
     </ul>
+    <div>
+      <provide-test></provide-test>
+    </div>
   </section>
 </template>
 
 <script lang="ts">
 export default {
+  // provide: {
+  //   provideTest: 'Varriable ProvideTest from App'
+  // },
+  provide(){
+    return {
+      provideTest: 'Variable Provide Test from APp'
+    }
+  },
   data() {
     return {
       friends: [
