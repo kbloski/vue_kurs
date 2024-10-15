@@ -1,6 +1,7 @@
 <template>
   <section>
     <header>My Friends</header>
+    <friend-add-form v-on:new-friend="addFriend"></friend-add-form>
     <ul>
       <friend-contact
         v-for="friend in friends"
@@ -11,6 +12,7 @@
         v-bind:email-address="friend.email"
         v-bind:isFavorite="friend.isFavorite"
         v-on:toggle-favorite="toggleFavoriteStatus"
+        v-on:delete-contact="deleteFriend"
       ></friend-contact>
     </ul>
   </section>
@@ -45,6 +47,13 @@ export default {
         return value;
       });
     },
+    addFriend( newFriend : any ){
+      const randomId = `newFriend.name${Math.round(Math.random()*100)}`;
+      this.friends.push({...newFriend, id: randomId})
+    },
+    deleteFriend( id : string){
+      this.friends = this.friends.filter( f => f.id !== id);
+    }
   },
 };
 </script>
