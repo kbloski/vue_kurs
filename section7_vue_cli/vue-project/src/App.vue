@@ -42,7 +42,6 @@ export default {
     toggleFavoriteStatus(friendId: string) {
       this.friends.map((value) => {
         if (value.id === friendId) value.isFavorite = !value.isFavorite;
-        console.log( this.friends)
         return value;
       });
     },
