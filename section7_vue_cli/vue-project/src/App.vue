@@ -1,17 +1,23 @@
 <template>
   <section>
     <header>My Friends</header>
-    <ul v-for="friend in friends" v-bind:key="friend.id">
-      <friend-contact :name="friend.name" :phone-number="friend.phone" :email-address="friend.email" :isFavorite="friend.isFavorite"></friend-contact>
+    <ul>
+      <friend-contact
+        v-for="friend in friends"
+        v-bind:key="friend.id"
+        v-bind:id="friend.id"
+        v-bind:name="friend.name"
+        v-bind:phone-number="friend.phone"
+        v-bind:email-address="friend.email"
+        v-bind:isFavorite="friend.isFavorite"
+        v-on:toggle-favorite="toggleFavoriteStatus"
+      ></friend-contact>
     </ul>
   </section>
 </template>
 
 <script lang="ts">
-import FriendContact from './components/FriendContact.vue';
-
 export default {
- 
   data() {
     return {
       friends: [
@@ -20,17 +26,26 @@ export default {
           name: "Manuel Lorenz ",
           phone: "01231232131",
           email: "manuel@local.host",
-          isFavorite: '1'
+          isFavorite: true,
         },
         {
           id: "julie",
           name: "Julie Julie ",
           phone: "01231232131",
           email: "Julie@local.host",
-          isFavorite: '0'
+          isFavorite: false,
         },
       ],
     };
+  },
+  methods: {
+    toggleFavoriteStatus(friendId: string) {
+      this.friends.map((value) => {
+        if (value.id === friendId) value.isFavorite = !value.isFavorite;
+        console.log( this.friends)
+        return value;
+      });
+    },
   },
 };
 </script>
@@ -60,13 +75,13 @@ header {
   max-width: 40rem;
 }
 
-#app ul {
+#app section ul {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-#app li {
+#app section li {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   margin: 1rem auto;
   border-radius: 10px;
@@ -76,14 +91,14 @@ header {
   max-width: 40rem;
 }
 
-#app h2 {
+#app section h2 {
   font-size: 2rem;
   border-bottom: 4px solid #ccc;
   color: #58004d;
   margin: 0 0 1rem 0;
 }
 
-#app button {
+#app section button {
   font: inherit;
   cursor: pointer;
   border: 1px solid #ff0077;
