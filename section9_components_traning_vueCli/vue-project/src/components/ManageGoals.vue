@@ -3,11 +3,13 @@
             <h2>Manage Goals</h2>
             <input type="text" ref="goal"/>
             <button @click="setGoals">Set goal</button>
-            <ErrorAlert v-if="inputIsInvalid">
-                    <h2>Input is Invalid!</h2>
-                    <p>Please enter at least a few character</p>
-                    <button @click="confirmError">Ok</button>
-            </ErrorAlert>
+            <teleport to="body">
+                <ErrorAlert v-if="inputIsInvalid">
+                        <h2>Input is Invalid!</h2>
+                        <p>Please enter at least a few character</p>
+                        <button @click="confirmError">Ok</button>
+                </ErrorAlert>
+            </teleport>
          </div>
 </template>
 
