@@ -51,7 +51,7 @@
         <rating-controle v-model='rating'></rating-controle>
     </div>
     <div>
-      <button>Save Data</button>
+      <button type="submit">Save Data</button>
     </div>
   </form>
 </template>

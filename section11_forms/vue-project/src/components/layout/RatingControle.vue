@@ -7,7 +7,7 @@
       <button @click="activate('averange')">Average</button>
     </li>
     <li :class="{ active: activeOption === 'great' }">
-      <button @click="activate('great')">Great</button>
+      <button  @click="activate('great')">Great</button>
     </li>
   </ul>
 </template>
@@ -16,17 +16,11 @@
 export default {
   props: ["modelValue"],
   emits: ["update:modelValue"],
-//   data() {
-//     return {
-//       activeOption: this.modelValue,
-//     };
-//   },
   computed: {
     activeOption(){}
   },
   methods: {
     activate(option) {
-      this.activeOption = option;
       this.$emit("update:modelValue", option);
     },
   },
