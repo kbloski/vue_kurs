@@ -3,10 +3,10 @@
     <learning-resource
       v-for="res in resources"
       :key="res.id"
-      :res-id="res.id"
       :title="res.title"
       :description="res.description"
       :link="res.link"
+      v-on:delete-resource="removeResource(res.id)"
     ></learning-resource>
   </ul>
 </template>
@@ -16,6 +16,7 @@ import LearningResource from "./LearningResourceItem.vue";
 
 export default {
   props: ["resources"],
+  inject: [ 'removeResource' ],
   components: {
     LearningResource,
   },

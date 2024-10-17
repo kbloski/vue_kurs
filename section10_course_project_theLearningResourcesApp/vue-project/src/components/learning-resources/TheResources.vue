@@ -8,7 +8,7 @@
         >Add Resource</base-button
       >
     </base-card>
-    <component component :is="selectedTab" :resources="storeResources"></component>
+    <component :is="selectedTab" :resources="storeResources"></component>
   </div>
 </template>
 
@@ -26,7 +26,7 @@ export default {
     return {
       resources: this.storeResources,
       addResource: this.addResoruce,
-      deleteResource: this.deleteResource
+      removeResource: this.removeResource
     };
   },
   data() {
@@ -71,8 +71,9 @@ export default {
       this.storeResources.unshift(newResource);
       this.selectedTab = "stored-resources";
     },
-    deleteResource(id){
-      this.storeResources = this.storeResources.filter( res => res.id !== id);
+    removeResource(id){
+      const resIdex = this.storeResources.findIndex( res => res.id === id)
+      this.storeResources.splice(resIdex, 1)
     }
   },
 };

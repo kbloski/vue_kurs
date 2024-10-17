@@ -19,6 +19,9 @@
 
 <script>
 export default {
+    emits: {
+      'delete-resource' : function(){return true}
+    },
     props: {
         resId: {
           type: String
@@ -34,12 +37,18 @@ export default {
             type: String
         }
     },
-    inject: ['deleteResource'],
     components: {
     },
+    methods: {
+      deleteResource(id){
+        this.$emit('delete-resource')
+      }
+    }
 
 }
 </script>
+
+
 
 <style scoped>
 
