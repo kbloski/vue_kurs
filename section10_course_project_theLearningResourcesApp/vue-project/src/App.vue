@@ -14,29 +14,7 @@ export default {
     TheHeader,
     TheResources
   },
-  provide () {
-    return {
-      resources: this.storeResources
-    }
-  },
-  data(){
-    return {
-      storeResources: [
-        {
-          id: 'official-guide',
-          title: 'Official Guide',
-          description: 'The oficial Vue.js documentation',
-          link: 'https://vuejs.org'
-        },
-        {
-          id: 'google',
-          title: 'Google',
-          description: 'Learn to google...',
-          link: 'https://google.org'
-        },
-      ]
-    }
-  },
+  
 }
 </script>
 

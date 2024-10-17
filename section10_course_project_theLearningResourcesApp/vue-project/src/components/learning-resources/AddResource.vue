@@ -29,18 +29,18 @@
 
 <script>
 export default {
+  inject: ["addResource"],
   methods: {
-    submitData(event){
-        event.preventDefault();
+    submitData(event) {
+      event.preventDefault();
 
-        const enteredTitle = this.$refs.titleInput.value;
-        const enteredDescription = this.$refs.descriptionInput.value;
-        const enteredLink = this.$refs.link.value;
-        
-        console.log( this.$refs)
+      const enteredTitle = this.$refs.titleInput.value;
+      const enteredDescription = this.$refs.descriptionInput.value;
+      const enteredLink = this.$refs.linkInput.value;
 
-    }
-  }
+      this.addResource(enteredTitle, enteredDescription, enteredLink);
+    },
+  },
 };
 </script>
 

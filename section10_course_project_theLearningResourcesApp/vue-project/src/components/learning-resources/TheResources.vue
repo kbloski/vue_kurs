@@ -1,18 +1,14 @@
 <template>
   <div>
     <base-card>
-      <base-button
-        @click="setSelectedTab('stored-resources')"
-        :mode="storedResButtonMode"
+      <base-button @click="setSelectedTab('stored-resources')" :mode="storedResButtonMode"
         >Stored Resources</base-button
       >
-      <base-button
-        @click="setSelectedTab('add-resource')"
-        :mode="addResButtonMode"
+      <base-button @click="setSelectedTab('add-resource')" :mode="addResButtonMode"
         >Add Resource</base-button
       >
     </base-card>
-    <component component :is="selectedTab" :resources="resources"></component>
+    <component component :is="selectedTab" :resources="storeResources"></component>
   </div>
 </template>
 
@@ -25,23 +21,54 @@ export default {
     StoredResources,
     AddResource,
   },
-  inject: ["resources"],
+
+  provide() {
+    return {
+      resources: this.storeResources,
+      addResource: this.addResoruce,
+    };
+  },
   data() {
     return {
       selectedTab: "stored-resources",
+      storeResources: [
+        {
+          id: "official-guide",
+          title: "Official Guide",
+          description: "The oficial Vue.js documentation",
+          link: "https://vuejs.org",
+        },
+        {
+          id: "google",
+          title: "Google",
+          description: "Learn to google...",
+          link: "https://google.org",
+        },
+      ],
     };
   },
+
   computed: {
-    storedResButtonMode(){
-        return this.selectedTab === 'stored-resources' ? null : 'flat'
+    storedResButtonMode() {
+      return this.selectedTab === "stored-resources" ? null : "flat";
     },
-    addResButtonMode(){
-        return this.selectedTab === 'add-resource' ? null : 'flat'
-    }
+    addResButtonMode() {
+      return this.selectedTab === "add-resource" ? null : "flat";
+    },
   },
   methods: {
     setSelectedTab(tab) {
       this.selectedTab = tab;
+    },
+    addResoruce(title, description, url) {
+      const newResource = {
+        id: `${new Date().toISOString()}${title}`,
+        title: title,
+        description: description,
+        link: url,
+      };
+      this.storeResources.unshift(newResource);
+      this.selectedTab = "stored-resources";
     },
   },
 };
