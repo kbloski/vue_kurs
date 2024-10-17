@@ -26,6 +26,7 @@ export default {
     return {
       resources: this.storeResources,
       addResource: this.addResoruce,
+      deleteResource: this.deleteResource
     };
   },
   data() {
@@ -70,6 +71,9 @@ export default {
       this.storeResources.unshift(newResource);
       this.selectedTab = "stored-resources";
     },
+    deleteResource(id){
+      this.storeResources = this.storeResources.filter( res => res.id !== id);
+    }
   },
 };
 </script>

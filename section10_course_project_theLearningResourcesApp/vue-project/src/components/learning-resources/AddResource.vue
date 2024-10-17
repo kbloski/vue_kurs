@@ -1,7 +1,7 @@
 <template>
   <div>
     <base-card>
-      <form>
+      <form v-on:submit.prevent="submitData">
         <div class="form-control">
           <label for="title">Title</label>
           <input id="title" name="title" type="text" ref="titleInput" />
@@ -20,7 +20,7 @@
           <input id="link" name="link" type="url" ref="linkInput" />
         </div>
         <div>
-          <base-button type="submit" @click="submitData">Add resource</base-button>
+          <base-button type="submit">Add resource</base-button>
         </div>
       </form>
     </base-card>
@@ -31,9 +31,7 @@
 export default {
   inject: ["addResource"],
   methods: {
-    submitData(event) {
-      event.preventDefault();
-
+    submitData() {
       const enteredTitle = this.$refs.titleInput.value;
       const enteredDescription = this.$refs.descriptionInput.value;
       const enteredLink = this.$refs.linkInput.value;
