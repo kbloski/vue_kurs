@@ -16,10 +16,13 @@
 export default {
   props: ["modelValue"],
   emits: ["update:modelValue"],
-  data() {
-    return {
-      activeOption: this.modelValue,
-    };
+//   data() {
+//     return {
+//       activeOption: this.modelValue,
+//     };
+//   },
+  computed: {
+    activeOption(){}
   },
   methods: {
     activate(option) {
