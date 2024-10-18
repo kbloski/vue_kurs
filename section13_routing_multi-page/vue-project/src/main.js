@@ -10,7 +10,8 @@ const router = createRouter({
     routes: [
         { path: '/teams', component: TeamsList },
         { path: '/users', component: UsersList },
-    ]
+    ],
+    // linkActiveClass: 'name-active-link-class'
 });
 const app = createApp(App)
 
