@@ -37,6 +37,7 @@ export default {
       default: false,
     }
   },
+
   // emits: ['toggle-favorite' ],
   emits: {
     'toggle-favorite' : function(id: string){
@@ -49,11 +50,13 @@ export default {
     },
     'delete-contact' : function(id: string){ return true},
   },
+
   data() {
     return {
       detailsAreVisible: false,
     };
   },
+  
   methods: {
     toggleDetails() {
       this.detailsAreVisible = !this.detailsAreVisible;
