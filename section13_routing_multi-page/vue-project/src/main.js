@@ -2,18 +2,19 @@ import { createApp } from 'vue';
 import { createRouter, createWebHistory} from 'vue-router';
 
 import App from './App.vue';
-import TeamsList from './components/teams/TeamsList.vue';
-import UsersList from './components/users/UsersList.vue';
+import TeamsList from './pages/TeamsList.vue';
+import UsersList from './pages/UsersList.vue';
 import TeamMembers from './components/teams/TeamMembers.vue';
-import NotFound from './components/nav/NotFound.vue';
-import TeamsFooter from './components/teams/TeamsFooter.vue';
-import UserFooter from './components/users/UserFooter.vue';
+import NotFound from './pages/NotFound.vue';
+import TeamsFooter from './pages/TeamsFooter.vue';
+import UserFooter from './pages/UserFooter.vue';
 
 const router = createRouter({
     history:  createWebHistory(),
     routes: [
         // { path: '/', redirect: '/teams' }, // Przekierowanie na adres
         { 
+            meta: { needsAuth: true},
             name: 'teams',
             path: '/teams', 
             components: {
@@ -51,6 +52,10 @@ const router = createRouter({
 router.beforeEach( (to, from, next) => {
     console.log('Global beforeEach')
     console.log( to, from)
+
+    if (to.meta.needsAuth){
+        console.log('Needs auth!')
+    }
     // console.log( to.path)
 
     
