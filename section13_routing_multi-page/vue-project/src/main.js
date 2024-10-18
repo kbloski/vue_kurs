@@ -28,7 +28,13 @@ const router = createRouter({
         { path: '/users', components: {
             default: UsersList,
             footer: UserFooter
-        } },
+        },
+        // Guard navigation local
+        // beforeEnter( to, from, next){
+        //     console.log( 'users before ', to, from)
+        //     next()
+        // } 
+    },
         { path: '/:notFound(.*)', component: NotFound}
     ],
     // linkActiveClass: 'name-active-link-class',
@@ -41,22 +47,22 @@ const router = createRouter({
     }
 });
 
-// Navigation guards
-router.beforeEach( (to, from, next) => {
-    console.log('Global beforeEach')
-    console.log( to, from)
-    // console.log( to.path)
+// // Navigation guards Global
+// router.beforeEach( (to, from, next) => {
+//     console.log('Global beforeEach')
+//     console.log( to, from)
+//     // console.log( to.path)
 
-    // next({name: 'team-members', params: {teamId: 't2'} })
-    // next()
-    if( to.name === 'team-members'){
-        next() // - redirect
-    } else {
-        next({name: 'team-members', params: {teamId: 't2'}})
-    }
-    // next({name: 'team-members', params, query}) - redirect
-    // next(false) - anulowanie przejścia do url
-})
+//     // next({name: 'team-members', params: {teamId: 't2'} })
+//     // next()
+//     if( to.name === 'team-members'){
+//         next() // - redirect
+//     } else {
+//         next({name: 'team-members', params: {teamId: 't2'}})
+//     }
+//     // next({name: 'team-members', params, query}) - redirect
+//     // next(false) - anulowanie przejścia do url
+// })
 
 const app = createApp(App)
 app.use( router )

@@ -51,6 +51,11 @@ export default {
     this.loadTeamsMembers(this.teamId)
     console.log( this.$route.query, this.sort);
   },
+  beforeRouteUpdate(to, from, next){
+    ConstantSourceNode.log( 'TeamMemebers CMP beforeRouteUpdate', to, from)
+    // this.loadTeamsMembers(to.params.teamId)
+    next()
+  },
   watch: {
     teamId(newId){
       this.loadTeamsMembers(newId) 
