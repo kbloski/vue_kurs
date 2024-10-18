@@ -1,8 +1,10 @@
 <template>
-  <the-navigation @set-page="setActivePage"></the-navigation>
-  <main>
-    <component :is="activePage"></component>
-  </main>
+  <div>
+    <the-navigation @set-page="setActivePage"></the-navigation>
+    <main>
+      <router-view></router-view>
+    </main>
+  </div>
 </template>
 
 <script>
