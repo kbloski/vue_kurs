@@ -31,10 +31,34 @@ const router = createRouter({
         } },
         { path: '/:notFound(.*)', component: NotFound}
     ],
-    // linkActiveClass: 'name-active-link-class'
+    // linkActiveClass: 'name-active-link-class',
+    scrollBehavior(to, from, savedPosition){
+        // console.log( to, from, savedPosition)
+        if (savedPosition) return savedPosition;
+        return {
+            left: 0, top: 0
+        };
+    }
 });
-const app = createApp(App)
 
+// Navigation guards
+router.beforeEach( (to, from, next) => {
+    console.log('Global beforeEach')
+    console.log( to, from)
+    // console.log( to.path)
+
+    // next({name: 'team-members', params: {teamId: 't2'} })
+    // next()
+    if( to.name === 'team-members'){
+        next() // - redirect
+    } else {
+        next({name: 'team-members', params: {teamId: 't2'}})
+    }
+    // next({name: 'team-members', params, query}) - redirect
+    // next(false) - anulowanie przejścia do url
+})
+
+const app = createApp(App)
 app.use( router )
 
 app.mount('#app');
