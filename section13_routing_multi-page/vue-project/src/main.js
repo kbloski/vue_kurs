@@ -5,13 +5,16 @@ import App from './App.vue';
 import TeamsList from './components/teams/TeamsList.vue';
 import UsersList from './components/users/UsersList.vue';
 import TeamMembers from './components/teams/TeamMembers.vue';
+import NotFound from './components/nav/NotFound.vue';
 
 const router = createRouter({
     history:  createWebHistory(),
     routes: [
-        { path: '/teams', component: TeamsList },
+        // { path: '/', redirect: '/teams' }, // Przekierowanie na adres
+        { path: '/teams', component: TeamsList , alias: '/'}, // aliast działa jak redirect, przekiruje na ten sam komponent
         { path: '/users', component: UsersList },
-        { path: '/teams/:teamId', props: true , component: TeamMembers } // domyślne ładowanie params z url do zmiennych props dla komponentu
+        { path: '/teams/:teamId', props: true , component: TeamMembers }, // domyślne ładowanie params z url do zmiennych props dla komponentu, dynamiczne parametry są przekazywane do komponentu jako props
+        { path: '/:notFound(.*)', component: NotFound}
     ],
     // linkActiveClass: 'name-active-link-class'
 });
