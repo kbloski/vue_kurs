@@ -29,6 +29,12 @@ export default {
 </script>
 
 <style scoped>
+a.router-link-active {
+  color: black;
+  background: red;
+}
+
+
 header {
   width: 100%;
   height: 5rem;
