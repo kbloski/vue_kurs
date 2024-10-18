@@ -11,7 +11,7 @@ const router = createRouter({
     routes: [
         { path: '/teams', component: TeamsList },
         { path: '/users', component: UsersList },
-        { path: '/teams/:teamId', component: TeamMembers }
+        { path: '/teams/:teamId', props: true , component: TeamMembers } // domyślne ładowanie params z url do zmiennych props dla komponentu
     ],
     // linkActiveClass: 'name-active-link-class'
 });
