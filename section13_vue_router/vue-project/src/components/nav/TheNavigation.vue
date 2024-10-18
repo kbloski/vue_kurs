@@ -3,15 +3,17 @@
     <nav>
       <ul>
         <li>
-          <router-link to="/teams">
-            <button @click="setActivePage('teams-list')">Teams</button>
+          <!-- Link with userRoutes -->
+          <router-link to="/teams">  
+            <button>Teams</button>
           </router-link>
         </li>
         <li>
           <router-link to="/users">
-            <button @click="setActivePage('users-list')">Users</button>
+            <button>Users</button>
           </router-link>
         </li>
+        <li><button @click="redirectTeam">this.$router.push('./teams')</button></li>
       </ul>
     </nav>
   </header>
@@ -24,6 +26,9 @@ export default {
     setActivePage(page) {
       this.$emit('set-page', page);
     },
+    redirectTeam(){
+      this.$router.push('/teams')
+    }
   },
 };
 </script>

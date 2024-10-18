@@ -11,7 +11,7 @@ const vueRouter = createRouter({
     history: createWebHistory(), // use default explorer history
     scrollBehavior( to, from, savedLastPosition){
         // behavior scroll when i go back to side
-        if (savedLastPosition) return savedLastPosition();
+        if (savedLastPosition) return savedLastPosition;
         return { left: 0, top: 0}
     },
     // linkActiveClass: 'name-class-for-active-link',
@@ -46,6 +46,7 @@ const vueRouter = createRouter({
 
             // Guard Navigation Local
             beforeEnter(to, from, next){
+                // run before goto this url
                 console.log('/users beforeEnter(){}');
                 next();
             }

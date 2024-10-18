@@ -1,6 +1,5 @@
 <template>
   <div>
-    <button @click="confirmInput">Confirm</button>
     <button @click="savedChanges">Save Changes</button>
     <ul>
       <user-item v-for="user in users" :key="user.id" :name="user.fullName" :role="user.role"></user-item>
@@ -17,31 +16,26 @@ export default {
   },
   inject: ['users'],
   data(){
-    return {changesSaved: false}
+    return { changesSaved: false}
   },
   methods: {
     savedChanges(){
-      this.savedChanges = true;
+      this.changesSaved = true;
     },  
-    confirmInput(){
-      this.$router.push('/teams')
-    }
   },
+
   beforeRouteEnter( to, from , next){
-    console.log('UserList component beforeRouteEnter')
-    console.log(to, from )
+    console.log('UserList component beforeRouteEnter local')
     next()
   },
   beforeRouteLeave(to, from, next){
-    console.log('UserList CMP befoureROuteLeave', to, from)
+    console.log('UserList CMP befoureROuteLeave local')
     if (this.changesSaved) return next();
 
     const userWantsToLeave = confirm('Are yo sure? You got unsaved changes!')
     if (userWantsToLeave) return next(userWantsToLeave)
   },
-  unmounted(){
-    console.log('unmoutend')
-  }
+
 };
 </script>
 

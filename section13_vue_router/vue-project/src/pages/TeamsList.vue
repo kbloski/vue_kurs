@@ -1,6 +1,7 @@
 <template>
   <div>
-    <router-view></router-view>
+    <!-- router-view render side component -->
+    <router-view></router-view> 
     <ul>
       <teams-item
         v-for="team in teams"
