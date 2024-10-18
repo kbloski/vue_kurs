@@ -13,8 +13,11 @@
 </template>
 
 <script>
+// Komponent musi przyjmować modelValue w props
+// Oraz musi emitować wartość update:modelValue z wartością
+
 export default {
-  props: ["modelValue"],
+  props: ["modelValue"], 
   emits: ["update:modelValue"],
   computed: {
     activeOption(){}

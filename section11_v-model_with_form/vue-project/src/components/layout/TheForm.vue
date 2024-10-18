@@ -19,7 +19,7 @@
     <div class="form-control">
       <h2>What are you interested in?</h2>
       <div>
-        <input id="interest-news" name="interest" type="checkbox" value='news' v-model="interest"/>
+        <input id="interest-news" name="interest" type="checkbox" value='news' v-model="interest"/> 
         <label for="interest-news">News</label>
       </div>
       <div>
@@ -28,7 +28,6 @@
       </div>
       <div>
         <input id="interest-nothing" name="interest" type="checkbox"  value="nothing" v-model="interest"/>
-
         <label for="interest-nothing">Nothing</label>
       </div>
     </div>
@@ -48,7 +47,7 @@
       </div>
     </div>
     <div>
-        <rating-controle v-model='rating'></rating-controle>
+        <component-with-v-model v-model='rating'></component-with-v-model>
     </div>
     <div>
       <button type="submit">Save Data</button>
@@ -57,30 +56,30 @@
 </template>
 
 <script>
-import RatingControle from './RatingControle.vue'
+import ComponentWithVModel from './CrateComponentForVodel.vue'
 
 export default {
     components: {
-        RatingControle
+        ComponentWithVModel
     },
     data(){
         return {
             userName: '',
             userAge: null,
             referrer: '',
-            interest: [],
+            interest: [], // array for checkbox
             rating: null,
             how: null
         }
     },
     methods: {
         resetForm(){
-            this.userName = '';
-            this.userAge = null;
-            this.referrer = '';
-            this.interest = [];
-            this.how = null;
-            this.rating = null
+            // this.userName = '';
+            // this.userAge = null;
+            // this.referrer = '';
+            // this.interest = [];
+            // this.how = null;
+            // this.rating = null
         },
         submitForm(){
             console.log(
