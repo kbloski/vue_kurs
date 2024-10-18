@@ -11,9 +11,14 @@ const router = createRouter({
     history:  createWebHistory(),
     routes: [
         // { path: '/', redirect: '/teams' }, // Przekierowanie na adres
-        { path: '/teams', component: TeamsList , alias: '/'}, // aliast działa jak redirect, przekiruje na ten sam komponent
         { path: '/users', component: UsersList },
-        { path: '/teams/:teamId', props: true , component: TeamMembers }, // domyślne ładowanie params z url do zmiennych props dla komponentu, dynamiczne parametry są przekazywane do komponentu jako props
+        { path: '/teams', component: TeamsList , alias: '/',
+            children: [
+
+                { path: ':teamId', props: true , component: TeamMembers } // domyślne ładowanie params z url do zmiennych props dla komponentu, dynamiczne parametry są przekazywane do komponentu jako props
+            ]
+        }, // aliast działa jak redirect, przekiruje na ten sam komponent
+
         { path: '/:notFound(.*)', component: NotFound}
     ],
     // linkActiveClass: 'name-active-link-class'
