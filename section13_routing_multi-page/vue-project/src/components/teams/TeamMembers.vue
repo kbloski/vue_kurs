@@ -52,7 +52,7 @@ export default {
     console.log( this.$route.query, this.sort);
   },
   beforeRouteUpdate(to, from, next){
-    ConstantSourceNode.log( 'TeamMemebers CMP beforeRouteUpdate', to, from)
+    console.log( 'TeamMemebers CMP beforeRouteUpdate', to, from)
     // this.loadTeamsMembers(to.params.teamId)
     next()
   },

@@ -47,22 +47,29 @@ const router = createRouter({
     }
 });
 
-// // Navigation guards Global
-// router.beforeEach( (to, from, next) => {
-//     console.log('Global beforeEach')
-//     console.log( to, from)
-//     // console.log( to.path)
+// Navigation guards Global
+router.beforeEach( (to, from, next) => {
+    console.log('Global beforeEach')
+    console.log( to, from)
+    // console.log( to.path)
 
-//     // next({name: 'team-members', params: {teamId: 't2'} })
-//     // next()
-//     if( to.name === 'team-members'){
-//         next() // - redirect
-//     } else {
-//         next({name: 'team-members', params: {teamId: 't2'}})
-//     }
-//     // next({name: 'team-members', params, query}) - redirect
-//     // next(false) - anulowanie przejścia do url
-// })
+    
+    next()
+    // if( to.name === 'team-members'){
+    //     next() // - redirect
+    // } else {
+    //     next({name: 'team-members', params: {teamId: 't2'}})
+    // }
+
+    // next({name: 'team-members', params, query}) - redirect
+    // next(false) - anulowanie przejścia do url
+})
+
+router.afterEach( (to,from) => {
+    //  sending analytics data
+    console.log('Global after Each')
+    console.log(to, from)
+})
 
 const app = createApp(App)
 app.use( router )
