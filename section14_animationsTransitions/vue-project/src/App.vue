@@ -78,14 +78,23 @@ button:active {
   height: 8rem;
   background-color: #290033;
   margin-bottom: 2rem;
-  transition: transform 0.3s ease-out
 }
 
 .animate {
-  /* animati */
-  transform: translateX(-100px)
+  animation: fade-rotate 1s ease-out forwards;
 }
 
-/* @keyframe  */
+@keyframes fade-rotate {
+  0% {
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
 </style>
