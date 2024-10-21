@@ -5,6 +5,11 @@
       <button @click="animateBlock">Animate</button>
     </div>
     <div class="container">
+      <!-- <transition    add custom name class for transition status
+      enter-to-class=""
+      enter-active-class=""
+      enter-from-class=""
+      ></transition> -->
       <transition>
         <p v-if="paraIsVisible">This is only sometimes visible...</p>
       </transition>
