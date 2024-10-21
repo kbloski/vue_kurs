@@ -8,6 +8,9 @@
       <transition>
         <p v-if="paraIsVisible">This is only sometimes visible...</p>
       </transition>
+      <transition name="customName">
+        <p v-if="paraIsVisible">This is only sometimes visible...</p>
+      </transition>
       <button @click="toggleParagraph">Toggle Paraph</button>
     </div>
     <base-modal @close="hideDialog" v-if="dialogIsVisible">
@@ -116,6 +119,34 @@ button:active {
   transition: all 0.3s ease-in;
 }
 .v-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+
+}
+
+
+.customName-enter-from {
+  opacity: 0;
+  transform: translateY(-30px);
+}
+
+.customName-enter-active {
+  transition: all 1s ease-out;
+}
+
+.customName-enter-to {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.customName-leave-from {
+  opacity: 1;
+  transform: translateY(0);
+}
+.customName-leave-active {
+  transition: all 1s ease-in;
+}
+.customName-leave-to {
   opacity: 0;
   transform: translateY(30px);
 
