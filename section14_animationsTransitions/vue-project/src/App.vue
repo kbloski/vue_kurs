@@ -49,11 +49,19 @@ Używane są do kontrolowania i modyfikowania animacji w różnych etapach. -->
     <div class="container">
       <button @click="showDialog">Show Dialog</button>
     </div>
+    <div class="container">
+      <animation-only-js></animation-only-js>
+    </div>
   </section>
 </template>
 
 <script>
+import AnimationOnlyJs from './components/AnimationOnlyJs.vue';
+
 export default {
+  components: {
+    AnimationOnlyJs
+  },
   data() {
     return {
       paraIsVisible: false,
@@ -63,8 +71,9 @@ export default {
     };
   },
   methods: {
-    beforeEnterAnimation(){
-      console.log('Before enter animation function')
+    beforeEnterAnimation(el){
+      console.log('Before enter animation function');
+      console.log(el)
     },
     showUsers() {
       this.usersAreVisible = true;
@@ -136,6 +145,8 @@ button:active {
   animation: fade-rotate 1s ease-out forwards;
 }
 
+/* 
+Default animation for transitions
 .v-enter-from {
   opacity: 0;
   transform: translateY(-30px);
@@ -160,7 +171,7 @@ button:active {
 .v-leave-to {
   opacity: 0;
   transform: translateY(30px);
-}
+} */
 
 .customName-enter-from {
   opacity: 0;
