@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="container">
-      <div class="block" :class="{animate: animatedBlock}"></div>
+      <div class="block" :class="{ animate: animatedBlock }"></div>
       <button @click="animateBlock">Animate</button>
     </div>
     <div class="container">
@@ -21,38 +21,42 @@
       <button @click="toggleParagraph">Toggle Paraph</button>
     </div>
     <div class="container">
-      <transition name="fade-button">
+      <transition name="fade-button" mode="out-in">
+        <!-- W Vue, parametr mode w komponencie <transition> kontroluje kolejność animacji przy zmianach elementów:
+        in-out: najpierw animuje się nowy element, potem stary.
+        out-in: najpierw animuje się stary element, potem nowy. -->
+
         <!-- Można umieścić więcej niż jeden element w transition tylko i włącznie w przypadku, gdy mamy pewność, że tylko jeden z tych elementów końcowo pojawi się w drzewie dom, transition będzie miało tylko i wyłącznie jednego potomka -->
         <!-- Musimy w tym przypadku używać v-if i v-else-if, tylko wtedy vue ma pewność, że tylko jeden z elementów zostanie wyświetlony -->
         <button @click="showUsers" v-if="!usersAreVisible">Show Users</button>
         <button @click="hideUsers" v-else-if="usersAreVisible">Hide Users</button>
       </transition>
     </div>
-      <base-modal @close="hideDialog" :open="dialogIsVisible">
-        <button @click="hideDialog">Close it!</button>
-      </base-modal>
+    <base-modal @close="hideDialog" :open="dialogIsVisible">
+      <button @click="hideDialog">Close it!</button>
+    </base-modal>
     <div class="container">
       <button @click="showDialog">Show Dialog</button>
     </div>
   </section>
-</template>  
+</template>
 
 <script>
 export default {
   data() {
-    return { 
+    return {
       paraIsVisible: false,
       animatedBlock: false,
       dialogIsVisible: false,
-      usersAreVisible: false
-     };
+      usersAreVisible: false,
+    };
   },
   methods: {
-    showUsers(){
+    showUsers() {
       this.usersAreVisible = true;
     },
-    hideUsers(){
-      this.usersAreVisible = false
+    hideUsers() {
+      this.usersAreVisible = false;
     },
     showDialog() {
       this.dialogIsVisible = true;
@@ -60,12 +64,12 @@ export default {
     hideDialog() {
       this.dialogIsVisible = false;
     },
-    animateBlock(){
-      this.animatedBlock = !this.animatedBlock
+    animateBlock() {
+      this.animatedBlock = !this.animatedBlock;
     },
-    toggleParagraph(){
-      this.paraIsVisible = !this.paraIsVisible
-    }
+    toggleParagraph() {
+      this.paraIsVisible = !this.paraIsVisible;
+    },
   },
 };
 </script>
@@ -118,7 +122,6 @@ button:active {
   animation: fade-rotate 1s ease-out forwards;
 }
 
-
 .v-enter-from {
   opacity: 0;
   transform: translateY(-30px);
@@ -143,9 +146,7 @@ button:active {
 .v-leave-to {
   opacity: 0;
   transform: translateY(30px);
-
 }
-
 
 .customName-enter-from {
   opacity: 0;
@@ -171,9 +172,7 @@ button:active {
 .customName-leave-to {
   opacity: 0;
   transform: translateY(30px);
-
 }
-
 
 .fade-button-enter-from {
   opacity: 0;
@@ -197,5 +196,4 @@ button:active {
     transform: rotate(360deg);
   }
 }
-
 </style>
