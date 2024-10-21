@@ -20,6 +20,14 @@
       </transition>
       <button @click="toggleParagraph">Toggle Paraph</button>
     </div>
+    <div class="container">
+      <transition name="fade-button">
+        <!-- Można umieścić więcej niż jeden element w transition tylko i włącznie w przypadku, gdy mamy pewność, że tylko jeden z tych elementów końcowo pojawi się w drzewie dom, transition będzie miało tylko i wyłącznie jednego potomka -->
+        <!-- Musimy w tym przypadku używać v-if i v-else-if, tylko wtedy vue ma pewność, że tylko jeden z elementów zostanie wyświetlony -->
+        <button @click="showUsers" v-if="!usersAreVisible">Show Users</button>
+        <button @click="hideUsers" v-else-if="usersAreVisible">Hide Users</button>
+      </transition>
+    </div>
       <base-modal @close="hideDialog" :open="dialogIsVisible">
         <button @click="hideDialog">Close it!</button>
       </base-modal>
@@ -36,9 +44,16 @@ export default {
       paraIsVisible: false,
       animatedBlock: false,
       dialogIsVisible: false,
+      usersAreVisible: false
      };
   },
   methods: {
+    showUsers(){
+      this.usersAreVisible = true;
+    },
+    hideUsers(){
+      this.usersAreVisible = false
+    },
     showDialog() {
       this.dialogIsVisible = true;
     },
@@ -159,6 +174,16 @@ button:active {
 
 }
 
+
+.fade-button-enter-from {
+  opacity: 0;
+}
+.fade-button-enter-active {
+  transition: opacity 0.3s ease-out;
+}
+.fade-button-enter-to {
+  opacity: 1;
+}
 
 @keyframes fade-rotate {
   0% {
