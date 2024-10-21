@@ -9,7 +9,9 @@
       enter-to-class=""
       enter-active-class=""
       enter-from-class=""
-      ></transition> -->
+      >
+        Transition może przyjmować tylko jeden potomny element!
+      </transition> -->
       <transition>
         <p v-if="paraIsVisible">This is only sometimes visible...</p>
       </transition>
@@ -18,9 +20,9 @@
       </transition>
       <button @click="toggleParagraph">Toggle Paraph</button>
     </div>
-    <base-modal @close="hideDialog" v-if="dialogIsVisible">
-      <button @click="hideDialog">Close it!</button>
-    </base-modal>
+      <base-modal @close="hideDialog" :open="dialogIsVisible">
+        <button @click="hideDialog">Close it!</button>
+      </base-modal>
     <div class="container">
       <button @click="showDialog">Show Dialog</button>
     </div>
@@ -156,6 +158,7 @@ button:active {
   transform: translateY(30px);
 
 }
+
 
 @keyframes fade-rotate {
   0% {
