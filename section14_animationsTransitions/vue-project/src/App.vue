@@ -46,24 +46,11 @@ export default {
     };
   },
   methods: {
-    beforeEnterAnimation(el) {
-      console.log("Before enter animation function");
-      console.log(el);
-    },
-    showUsers() {
-      this.usersAreVisible = true;
-    },
-    hideUsers() {
-      this.usersAreVisible = false;
-    },
     showDialog() {
       this.dialogIsVisible = true;
     },
     hideDialog() {
       this.dialogIsVisible = false;
-    },
-    animateBlock() {
-      this.animatedBlock = !this.animatedBlock;
     },
   },
 };
