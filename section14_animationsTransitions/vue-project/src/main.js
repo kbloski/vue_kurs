@@ -10,9 +10,9 @@ import TheTransition from './pages/TheTransition.vue';
 const router = createRouter( {
     history: createWebHistory(),
     routes: [
-        { path: '/', component: TheTransition}
-        // {path: '/', component: AllUsers},
-        // {path: '/goals', component: CourseGoals},
+        { path: '/', component: TheTransition},
+        {path: '/users', component: AllUsers},
+        {path: '/goals', component: CourseGoals},
     ]
 })
 
