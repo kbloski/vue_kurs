@@ -1,6 +1,5 @@
 <template>
   <section>
-    <router-view></router-view>
     <div class="container">
       <div class="block" :class="{ animate: animatedBlock }"></div>
       <button @click="animateBlock">Animate</button>
@@ -66,7 +65,6 @@ Używane są do kontrolowania i modyfikowania animacji w różnych etapach. -->
 </template>
 
 <script>
-import TheTransition from './pages/TheTransition.vue';
 import AnimationOnlyJs from './components/AnimationOnlyJs.vue';
 import UserList from './components/UserList.vue';
 
@@ -168,6 +166,33 @@ button:active {
   animation: fade-rotate 1s ease ;
 }
 
+/* 
+Default animation for transitions
+.v-enter-from {
+  opacity: 0;
+  transform: translateY(-30px);
+}
+
+.v-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.v-enter-to {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.v-leave-from {
+  opacity: 1;
+  transform: translateY(0);
+}
+.v-leave-active {
+  transition: all 0.3s ease-in;
+}
+.v-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+} */
 
 .customName-enter-from {
   opacity: 0;
