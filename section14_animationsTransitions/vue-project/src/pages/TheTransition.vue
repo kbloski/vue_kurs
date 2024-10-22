@@ -5,6 +5,7 @@
             <button @click="toggleParaVisible">Paragraph animation</button>
             <button @click="toggleExampVisible">Example animation</button>
             <transition>
+                <!-- Transition może mieć tylko jednego potomka któremu nada efekty -->
                 <h2 v-if="titleIsVisible">Transition</h2>
             </transition>
             <transition name="para">
@@ -13,9 +14,9 @@
                 </p>
             </transition>
             <transition v-on:before-enter="funBeforeEnter">
-                <p v-if="exampIsVisible">Example</p>
+                <p v-if="exampIsVisible">Check console.log</p>
                  <!-- W Vue, zdarzenia v-on związane z animacjami w komponencie <transition> pozwalają na wywoływanie funkcji w odpowiednich momentach cyklu animacji: -->
-                 
+
                 <!-- before-enter: wywoływane tuż przed rozpoczęciem animacji wejściowej.
                 enter: wywoływane, gdy animacja wejściowa się rozpoczyna.
                 after-enter: wywoływane po zakończeniu animacji wejściowej.

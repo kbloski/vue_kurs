@@ -1,19 +1,7 @@
 <template>
   <section>
+    <the-navigation></the-navigation>
     <router-view></router-view>
-    <div class="container">
-      <!-- <transition    add custom name class for transition status
-      enter-to-class=""
-      enter-active-class=""
-      enter-from-class=""
-      >
-        Transition może przyjmować tylko jeden potomny element!
-      </transition> -->
-      <transition>
-        <p v-if="paraIsVisible">This is only sometimes visible...</p>
-      </transition>
-      <button @click="toggleParagraph">Toggle Paraph</button>
-    </div>
     <div class="container">
       <transition name="fade-button" mode="out-in">
         <!-- W Vue, parametr mode w komponencie <transition> kontroluje kolejność animacji przy zmianach elementów:
@@ -48,14 +36,15 @@
 </template>
 
 <script>
-import TheTransition from './pages/TheTransition.vue';
+import TheNavigation from './components/TheNavigation.vue';
 import AnimationOnlyJs from './components/AnimationOnlyJs.vue';
 import UserList from './components/UserList.vue';
 
 export default {
   components: {
     AnimationOnlyJs,
-    UserList
+    UserList,
+    TheNavigation
   },
   data() {
     return {
@@ -110,6 +99,8 @@ button {
   background-color: #810032;
   color: white;
   cursor: pointer;
+  display: block;
+  margin: 5px;
 }
 button:hover,
 button:active {
