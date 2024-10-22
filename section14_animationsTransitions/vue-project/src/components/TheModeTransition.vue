@@ -54,7 +54,6 @@ export default {
     animation: slide-fade 2s ease reverse;
 }
 
-
 @keyframes slide-fade {
     from {
         opacity: 0;
