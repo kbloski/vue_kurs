@@ -52,15 +52,26 @@ Używane są do kontrolowania i modyfikowania animacji w różnych etapach. -->
     <div class="container">
       <animation-only-js></animation-only-js>
     </div>
+    <div class="container">
+      <user-list></user-list>
+    </div>
+    <h2>Sides</h2>
+      <router-view v-slot="slotProps">
+          <transition name="routes-transition" mode="out-in">
+              <component :is="slotProps.Component"></component>
+          </transition>
+      </router-view>
   </section>
 </template>
 
 <script>
 import AnimationOnlyJs from './components/AnimationOnlyJs.vue';
+import UserList from './components/UserList.vue';
 
 export default {
   components: {
-    AnimationOnlyJs
+    AnimationOnlyJs,
+    UserList
   },
   data() {
     return {
@@ -143,6 +154,16 @@ button:active {
 
 .animate {
   animation: fade-rotate 1s ease-out forwards;
+}
+
+.routes-transition-enter-from {}
+.routes-transition-enter-active {
+  animation: fade-rotate 0.4s ease;
+}
+.routes-transition-enter-to {}
+
+.routes-transition-leave-active {
+  animation: fade-rotate 1s ease ;
 }
 
 /* 

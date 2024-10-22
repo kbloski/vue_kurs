@@ -3,6 +3,7 @@
         <button v-on:click="toggleVisible">Toggle</button>
         <transition 
             v-on:before-enter="beforeEnter"
+            :css="false"
             @enter="enter"
             @after-enter="afterEnter"
             @before-leave="beforeLeave"
