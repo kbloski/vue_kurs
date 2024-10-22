@@ -3,6 +3,7 @@
         <div>
             <button @click="toggleTitleVisible">Title animation</button>
             <button @click="toggleParaVisible">Paragraph animation</button>
+            <button @click="toggleExampVisible">Example animation</button>
             <transition>
                 <h2 v-if="titleIsVisible">Transition</h2>
             </transition>
@@ -10,6 +11,20 @@
                 <p v-if="paraIsVisible">
                     W Vue.js transition służy do animowania zmian stanu elementów w interfejsie użytkownika, takich jak pojawianie się i znikanie. Dzięki komponentowi transition, możemy łatwo dodać animacje CSS lub wykorzystać animacje JavaScript, aby płynnie zmieniać wygląd elementów podczas ich wchodzenia, opuszczania czy modyfikacji.
                 </p>
+            </transition>
+            <transition v-on:before-enter="funBeforeEnter">
+                <p v-if="exampIsVisible">Example</p>
+                 <!-- W Vue, zdarzenia v-on związane z animacjami w komponencie <transition> pozwalają na wywoływanie funkcji w odpowiednich momentach cyklu animacji: -->
+                 
+                <!-- before-enter: wywoływane tuż przed rozpoczęciem animacji wejściowej.
+                enter: wywoływane, gdy animacja wejściowa się rozpoczyna.
+                after-enter: wywoływane po zakończeniu animacji wejściowej.
+                enter-cancelled: wywoływane, jeśli animacja wejściowa zostanie przerwana.
+                before-leave: wywoływane przed animacją wyjściową.
+                leave: wywoływane, gdy animacja wyjściowa się zaczyna.
+                after-leave: po zakończeniu animacji wyjściowej.
+                leave-cancelled: gdy animacja wyjściowa zostanie anulowana.
+                Używane są do kontrolowania i modyfikowania animacji w różnych etapach. -->
             </transition>
         </div>
     </div>
@@ -20,7 +35,8 @@ export default {
     data(){
         return {
             titleIsVisible: true,
-            paraIsVisible: true
+            paraIsVisible: true,
+            exampIsVisible: false
         }
     },
     methods: {
@@ -29,6 +45,12 @@ export default {
         },
         toggleParaVisible(){
             this.paraIsVisible = !this.paraIsVisible
+        },
+        toggleExampVisible(){
+            this.exampIsVisible = !this.exampIsVisible
+        },
+        funBeforeEnter(){
+            console.log('Function before enter local')
         }
     }
 }

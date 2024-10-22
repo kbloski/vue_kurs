@@ -2,10 +2,6 @@
   <section>
     <router-view></router-view>
     <div class="container">
-      <div class="block" :class="{ animate: animatedBlock }"></div>
-      <button @click="animateBlock">Animate</button>
-    </div>
-    <div class="container">
       <!-- <transition    add custom name class for transition status
       enter-to-class=""
       enter-active-class=""
@@ -14,20 +10,6 @@
         Transition może przyjmować tylko jeden potomny element!
       </transition> -->
       <transition>
-        <p v-if="paraIsVisible">This is only sometimes visible...</p>
-      </transition>
-      <transition name="customName" v-on:before-enter="beforeEnterAnimation">
-        <!-- W Vue, zdarzenia v-on związane z animacjami w komponencie <transition> pozwalają na wywoływanie funkcji w odpowiednich momentach cyklu animacji:
-
-before-enter: wywoływane tuż przed rozpoczęciem animacji wejściowej.
-enter: wywoływane, gdy animacja wejściowa się rozpoczyna.
-after-enter: wywoływane po zakończeniu animacji wejściowej.
-enter-cancelled: wywoływane, jeśli animacja wejściowa zostanie przerwana.
-before-leave: wywoływane przed animacją wyjściową.
-leave: wywoływane, gdy animacja wyjściowa się zaczyna.
-after-leave: po zakończeniu animacji wyjściowej.
-leave-cancelled: gdy animacja wyjściowa zostanie anulowana.
-Używane są do kontrolowania i modyfikowania animacji w różnych etapach. -->
         <p v-if="paraIsVisible">This is only sometimes visible...</p>
       </transition>
       <button @click="toggleParagraph">Toggle Paraph</button>
@@ -205,16 +187,4 @@ button:active {
   opacity: 1;
 }
 
-@keyframes fade-rotate {
-  0% {
-  }
-
-  50% {
-    transform: rotate(180deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
 </style>
