@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="container">
+    <h2>Transition group</h2>
     <ul>
       <transition-group tag="ul" name="user-list">
         <li v-for="user in users" :key="user" @click="removeUser(user)">{{ user }}</li>

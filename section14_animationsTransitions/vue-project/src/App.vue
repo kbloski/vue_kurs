@@ -2,6 +2,14 @@
   <section>
     <the-navigation></the-navigation>
     <router-view></router-view>
+    <div class="container">
+      <h2>Route animation</h2>
+      <router-view v-slot="slotProps">
+        <transition name="routes-transition">
+          <component :is="slotProps.Component"></component>
+        </transition>
+      </router-view>
+    </div>
     <the-mode-transition></the-mode-transition>
 
     <base-modal @close="hideDialog" :open="dialogIsVisible">
@@ -12,30 +20,23 @@
       <button @click="showDialog">Show Dialog</button>
     </div>
     <animation-only-js></animation-only-js>
-    <div class="container">
-      <user-list></user-list>
-    </div>
-      <!-- <router-view v-slot="slotProps">
-          <transition name="routes-transition" mode="out-in">
-              <component :is="slotProps.Component"></component>
-          </transition>
-      </router-view> -->
+    <user-list></user-list>
   </section>
 </template>
 
 <script>
-import TheNavigation from './components/TheNavigation.vue';
-import TheModeTransition from './components/TheModeTransition.vue';
+import TheNavigation from "./components/TheNavigation.vue";
+import TheModeTransition from "./components/TheModeTransition.vue";
 
-import AnimationOnlyJs from './components/TheAnimationOnlyJs.vue';
-import UserList from './components/TheTransitionGroup.vue';
+import AnimationOnlyJs from "./components/TheAnimationOnlyJs.vue";
+import UserList from "./components/TheTransitionGroup.vue";
 
 export default {
   components: {
     AnimationOnlyJs,
     UserList,
     TheNavigation,
-    TheModeTransition
+    TheModeTransition,
   },
   data() {
     return {
@@ -45,9 +46,9 @@ export default {
     };
   },
   methods: {
-    beforeEnterAnimation(el){
-      console.log('Before enter animation function');
-      console.log(el)
+    beforeEnterAnimation(el) {
+      console.log("Before enter animation function");
+      console.log(el);
     },
     showUsers() {
       this.usersAreVisible = true;
@@ -114,55 +115,23 @@ button:active {
   margin-bottom: 2rem;
 }
 
-.animate {
-  animation: fade-rotate 1s ease-out forwards;
-}
-
+/* 
 .routes-transition-enter-from {}
+.routes-transition-enter-to {} 
+*/
 .routes-transition-enter-active {
-  animation: fade-rotate 0.4s ease;
+  animation: blur-animation 0.4s ease;
 }
-.routes-transition-enter-to {}
-
 .routes-transition-leave-active {
-  animation: fade-rotate 1s ease ;
+  animation: blur-animation 1s ease reverse;
 }
 
-
-.customName-enter-from {
-  opacity: 0;
-  transform: translateY(-30px);
+@keyframes blur-animation {
+  from {
+    filter: blur(10px)
+  } 
+  to {
+    filter: blur(0px)
+  }
 }
-
-.customName-enter-active {
-  transition: all 1s ease-out;
-}
-
-.customName-enter-to {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.customName-leave-from {
-  opacity: 1;
-  transform: translateY(0);
-}
-.customName-leave-active {
-  transition: all 1s ease-in;
-}
-.customName-leave-to {
-  opacity: 0;
-  transform: translateY(30px);
-}
-
-.fade-button-enter-from {
-  opacity: 0;
-}
-.fade-button-enter-active {
-  transition: opacity 0.3s ease-out;
-}
-.fade-button-enter-to {
-  opacity: 1;
-}
-
 </style>
