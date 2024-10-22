@@ -2,18 +2,8 @@
   <section>
     <the-navigation></the-navigation>
     <router-view></router-view>
-    <div class="container">
-      <transition name="fade-button" mode="out-in">
-        <!-- W Vue, parametr mode w komponencie <transition> kontroluje kolejność animacji przy zmianach elementów:
-        in-out: najpierw animuje się nowy element, potem stary.
-        out-in: najpierw animuje się stary element, potem nowy. -->
+    <the-mode-transition></the-mode-transition>
 
-        <!-- Można umieścić więcej niż jeden element w transition tylko i włącznie w przypadku, gdy mamy pewność, że tylko jeden z tych elementów końcowo pojawi się w drzewie dom, transition będzie miało tylko i wyłącznie jednego potomka -->
-        <!-- Musimy w tym przypadku używać v-if i v-else-if, tylko wtedy vue ma pewność, że tylko jeden z elementów zostanie wyświetlony -->
-        <button @click="showUsers" v-if="!usersAreVisible">Show Users</button>
-        <button @click="hideUsers" v-else-if="usersAreVisible">Hide Users</button>
-      </transition>
-    </div>
     <base-modal @close="hideDialog" :open="dialogIsVisible">
       <button @click="hideDialog">Close it!</button>
     </base-modal>
@@ -37,6 +27,8 @@
 
 <script>
 import TheNavigation from './components/TheNavigation.vue';
+import TheModeTransition from './components/TheModeTransition.vue';
+
 import AnimationOnlyJs from './components/AnimationOnlyJs.vue';
 import UserList from './components/UserList.vue';
 
@@ -44,11 +36,11 @@ export default {
   components: {
     AnimationOnlyJs,
     UserList,
-    TheNavigation
+    TheNavigation,
+    TheModeTransition
   },
   data() {
     return {
-      paraIsVisible: false,
       animatedBlock: false,
       dialogIsVisible: false,
       usersAreVisible: false,
@@ -73,9 +65,6 @@ export default {
     },
     animateBlock() {
       this.animatedBlock = !this.animatedBlock;
-    },
-    toggleParagraph() {
-      this.paraIsVisible = !this.paraIsVisible;
     },
   },
 };
