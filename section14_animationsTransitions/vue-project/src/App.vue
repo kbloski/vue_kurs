@@ -30,7 +30,7 @@ import TheNavigation from './components/TheNavigation.vue';
 import TheModeTransition from './components/TheModeTransition.vue';
 
 import AnimationOnlyJs from './components/AnimationOnlyJs.vue';
-import UserList from './components/UserList.vue';
+import UserList from './components/TheTransitionGroup.vue';
 
 export default {
   components: {

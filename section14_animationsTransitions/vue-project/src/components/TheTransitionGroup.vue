@@ -61,13 +61,13 @@ li {
 }
 .user-list-leave-active {
     transition: all 0.3s ease-out;
-    /* position: absolute; */
 }
 .user-list-leave-to {
     opacity: 0;
     transform: translateX(-30px);
 }
 
+/* Dodanie łagodnego przejącia dla elementów listy */
 .user-list-move {
     transition: transform 2s ease;
 }
