@@ -5,7 +5,7 @@
     <div class="container">
       <h2>Route animation</h2>
       <router-view v-slot="slotProps">
-        <transition name="routes-transition">
+        <transition name="routes-transition" mode="out-in">
           <component :is="slotProps.Component"></component>
         </transition>
       </router-view>
