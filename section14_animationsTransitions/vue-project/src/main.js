@@ -2,7 +2,7 @@ import { createApp } from 'vue';
 import {createRouter, createWebHistory} from 'vue-router'
 
 import App from './App.vue';
-import BaseModal from './components/BaseModal.vue';
+import BaseModal from './components/base/BaseModal.vue';
 import AllUsers from './pages/AllUsers.vue';
 import CourseGoals from './pages/CourseGoals.vue';
 import TheTransition from './pages/TheTransition.vue';

@@ -7,6 +7,7 @@
     <base-modal @close="hideDialog" :open="dialogIsVisible">
       <button @click="hideDialog">Close it!</button>
     </base-modal>
+    
     <div class="container">
       <button @click="showDialog">Show Dialog</button>
     </div>
@@ -16,12 +17,11 @@
     <div class="container">
       <user-list></user-list>
     </div>
-    <h2>Sides</h2>
-      <router-view v-slot="slotProps">
+      <!-- <router-view v-slot="slotProps">
           <transition name="routes-transition" mode="out-in">
               <component :is="slotProps.Component"></component>
           </transition>
-      </router-view>
+      </router-view> -->
   </section>
 </template>
 
