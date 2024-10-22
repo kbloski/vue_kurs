@@ -7,13 +7,11 @@
     <base-modal @close="hideDialog" :open="dialogIsVisible">
       <button @click="hideDialog">Close it!</button>
     </base-modal>
-    
+
     <div class="container">
       <button @click="showDialog">Show Dialog</button>
     </div>
-    <div class="container">
-      <animation-only-js></animation-only-js>
-    </div>
+    <animation-only-js></animation-only-js>
     <div class="container">
       <user-list></user-list>
     </div>
@@ -29,7 +27,7 @@
 import TheNavigation from './components/TheNavigation.vue';
 import TheModeTransition from './components/TheModeTransition.vue';
 
-import AnimationOnlyJs from './components/AnimationOnlyJs.vue';
+import AnimationOnlyJs from './components/TheAnimationOnlyJs.vue';
 import UserList from './components/TheTransitionGroup.vue';
 
 export default {

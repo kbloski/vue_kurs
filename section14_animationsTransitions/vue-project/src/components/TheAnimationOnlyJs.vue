@@ -1,5 +1,6 @@
 <template>
-    <div>
+    <div class="container">
+        <h2>Animation only in JS</h2>
         <button v-on:click="toggleVisible">Toggle</button>
         <transition 
             v-on:before-enter="beforeEnter"
