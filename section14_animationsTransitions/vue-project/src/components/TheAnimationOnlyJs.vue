@@ -60,15 +60,16 @@ export default {
         round++;
         if (round > 100) {
           clearInterval(this.enterInterval);
-          console.log("enter");
+          console.log("Enter");
           done();
         }
       }, 20);
     },
     afterEnter(el, done) {
-      console.log("After enter");
+      console.log("After Enter");
     },
     beforeLeave(el, done) {
+      console.log('Before Leave')
       el.style.opacity = 1;
     },
     leave(el, done) {
