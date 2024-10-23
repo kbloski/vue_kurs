@@ -84,9 +84,10 @@ export default {
       }, 20);
     },
     afterLeave(el, done) {
-      console.log("after leave");
+      console.log("After leave Function");
     },
     enterCancelled(el, done) {
+      console.log('')
       clearInterval(this.enterInterval);
     },
     leaveCancelled(el, done) {
