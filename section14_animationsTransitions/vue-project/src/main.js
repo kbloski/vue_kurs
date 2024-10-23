@@ -21,7 +21,7 @@ const app = createApp(App);
 app.component('base-modal', BaseModal);
 app.use(router);
 
-// Nie powoduje startowej animacji dla routes po przejściu na stronę ponieważ instaluje aplikację po załadowaniu routera przez najpierw przechodzi na podany route z pustego adresu a dopiero później instaluje aplikacje
+// router.isReady - Nie powoduje startowej animacji dla routes po przejściu na stronę ponieważ instaluje aplikację po załadowaniu routera przez najpierw przechodzi na podany route z pustego adresu a dopiero później instaluje aplikacje
 router.isReady().then( ()=>{
     app.mount('#app');
 });
