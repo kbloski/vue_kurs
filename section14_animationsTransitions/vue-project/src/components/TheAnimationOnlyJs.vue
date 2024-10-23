@@ -50,7 +50,7 @@ export default {
       this.isVisible = !this.isVisible;
     },
     beforeEnter(el, done) {
-      console.log(el);
+      console.log('Before Enter',el);
       el.style.opacity = 0;
     },
     enter(el, done) {
