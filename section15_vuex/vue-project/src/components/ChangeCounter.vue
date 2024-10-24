@@ -4,7 +4,7 @@
     <button @click="minus(1)">Minus 1</button>
     <button @click="add(1)">Add 1</button>
     <button @click="add(2)">Add 2</button>
-    <button @click="addAsync(10)">Add async 1</button>
+    <button @click="addAsync">Add async 1</button>
     <button @click="increaseM(2)">Increase 2</button>
   </div>
 </template>
@@ -21,7 +21,7 @@ export default {
     minus(value) {
       this.$store.commit("decrement", value);
     },
-    addAsync(value) {
+    addAsync() {
     //   this.$store.dispatch({
     //     type: "increment",
     //     value: 10,

@@ -6,6 +6,7 @@ export const store = createStore({
         // state jest funkcją która powinna zwrócić stan obiektu, czyli dane dla całej aplikacji
         return {
             counter: 0,
+            isLoggedIn: false
         };
     },
 
@@ -19,6 +20,9 @@ export const store = createStore({
         decrement(_, payload) {
             this.state.counter -= payload;
         },
+        toggleLogged(_, payload){
+            this.state.isLoggedIn = payload ? true : false
+        }
     },
 
     // Dispatch mogą robić to samo co mutacje ale działając asynchronicznie, jednak nie powinieneś bezpośrednio z wnętrza akcji manipulować state
@@ -31,6 +35,9 @@ export const store = createStore({
         increase( context, payload){
             console.log( context )
             context.commit( 'increment', payload)
+        },
+        login( context, payload){
+            context.commit( 'toggleLogged', payload)
         }
     },
 
@@ -41,15 +48,11 @@ export const store = createStore({
         normalizedCounter(state, getters){
             const finalCounter = getters.finalCounter
             return finalCounter > 0 ? finalCounter : 0
+        },
+        isLogged( state ){
+            return state.isLoggedIn
         }
     }
 });
 
-// mutations: {
-//   increment(state, payload) {
-//     state.counter += payload.amount
-//   }
-// }
-// // Wywołanie mutacji z payloadem
-// store.commit('increment', { amount: 5 })
-// console.log(store.state.counter) // Zwróci 5
+

@@ -6,5 +6,8 @@
         <li>
             <router-link to="/storage">Storage Vuex</router-link>
         </li>
+        <li>
+            <router-link to="/auth">Auth</router-link>
+        </li>
     </ul>
 </template>
