@@ -10,29 +10,26 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions } from "vuex";
 
 export default {
   methods: {
-    ...mapActions('numbers', ['increase', 'increment','decrement']),
-    add(value) {
-      // this.$store.commit("increment", value);
-      this.increment(value)
-    },
+    // mapActins('namespace', ['action', 'action', ... ])
+    ...mapActions("numbers", ["increase", "increment", "decrement", 'add']),
     minus(value) {
       // this.$store.commit("decrement", value);
-      this.decrement( value )
+      this.decrement(value);
     },
     addAsync() {
-    //   this.$store.dispatch({
-    //     type: "increment",
-    //     value: 10,
-    //   });
-        this.increment(1)
+      //   this.$store.dispatch({
+      //     type: "increment",
+      //     value: 10,
+      //   });
+      this.increment(1);
     },
     increaseM(value) {
-    //   this.$store.dispatch("increase", value);
-        this.increase(value)
+      //   this.$store.dispatch("increase", value);
+      this.increase(value);
     },
   },
 };

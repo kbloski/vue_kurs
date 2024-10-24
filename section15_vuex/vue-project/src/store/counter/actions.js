@@ -7,8 +7,10 @@ export default {
             context.commit("increment", 1);
         }, 400);
     },
+    add( context, payload){
+        context.commit('increment', payload)
+    },
     increase(context, payload) {
-        console.log(context);
         context.commit("increment", payload);
     }
 }

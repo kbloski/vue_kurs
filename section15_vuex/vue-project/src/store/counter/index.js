@@ -1,6 +1,6 @@
-import mutations from './mutations.js'
-import actions from './actions.js'
-import getters from './getters.js'
+import counterMutations from './mutations.js'
+import counterActions from './actions.js'
+import counterGetters from './getters.js'
 
 export default {
     namespaced: true,
@@ -9,7 +9,7 @@ export default {
             counter: 0,
         };
     },
-    mutations,
-    actions,
-    getters,
+    mutations: counterMutations,
+    actions: counterActions,
+    getters: counterGetters,
 };

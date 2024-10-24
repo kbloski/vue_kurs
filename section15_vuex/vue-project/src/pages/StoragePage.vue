@@ -5,10 +5,17 @@
             {{ JSON.stringify($store.state)}}
         </div>
         <h1>Storage Page with Vuex</h1>
-        <h3>Counter {{  counter }}</h3>
-        <favorite-value></favorite-value>
-        <the-counter></the-counter>
-        <change-counter></change-counter>
+        <section>
+            <h2> this.$store</h2>
+            <h3>Store counter {{  counter }}</h3>
+            <the-counter></the-counter>
+            <button @click="increment">Increment</button>
+            <button @click="decrement">Decrement</button>
+        </section>
+        <section>
+            <favorite-value></favorite-value>
+            <change-counter></change-counter>
+        </section>
     </base-container>
 </template>
 
@@ -25,13 +32,28 @@ export default {
     },
     computed: {
         counter(){
-            return this.$store.state.counter
+            return this.$store.getters.getCounter
         }
     },
     methods: {
-        addOne(){
-            this.$store.state.counter++;
+        increment(){
+            this.$store.commit('increment')
+            // this.$store.mutations...
+        },
+        decrement(){
+            // this.$store.actions...
+            this.$store.dispatch('decrement')
         }
     }
 }
 </script>
+
+<style scoped>
+
+section {
+    padding: 0 0;
+    margin: 10px 0 0 0;
+    border-top: 2px solid black
+}
+
+</style>

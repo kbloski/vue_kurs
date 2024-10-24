@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h3>Favorite Value: {{ finalCounter }}</h3>
+        <h3>Counter from namespace numbers: {{ finalCounter }}</h3>
         <p>We do more...</p>
     </div>
 </template>
@@ -11,9 +11,7 @@ import { mapGetters } from 'vuex';
 
 export default {
     computed: {
-        // counter(){
-        //     return this.$store.getters.finalCounter
-        // }
+        // ...mapGetters('namespace', ['getter']),
         ...mapGetters('numbers', ['finalCounter'])
     }
 }

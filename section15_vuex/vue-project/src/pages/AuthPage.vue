@@ -11,10 +11,10 @@
 import { mapGetters, mapActions} from 'vuex';
 export default {
     computed: {
-        ...mapGetters(['isLogged'])
+        ...mapGetters('auth', ['isLogged'])
     },
     methods: {
-        ...mapActions(['setAuth'])
+        ...mapActions('auth', ['setAuth'])
     }
 }
 </script>
