@@ -1,6 +1,8 @@
 <template>
-  <the-header></the-header>
-  <router-view></router-view>
+  <div>
+    <the-header></the-header>
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
@@ -12,7 +14,6 @@ export default {
   },
   data() {
     return {
-      isLoggedIn: false,
       products: [
         {
           id: 'p1',
@@ -85,12 +86,6 @@ export default {
       this.cart.items.splice(productInCartIndex, 1);
       this.cart.qty -= prodData.qty;
       this.cart.total -= prodData.price * prodData.qty;
-    },
-    login() {
-      this.isLoggedIn = true;
-    },
-    logout() {
-      this.isLoggedIn = false;
     },
   },
 };
