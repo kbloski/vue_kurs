@@ -6,6 +6,7 @@
         </div>
         <h1>Storage Page with Vuex</h1>
         <h3>Counter {{  counter }}</h3>
+        <favorite-value></favorite-value>
         <the-counter></the-counter>
         <change-counter></change-counter>
     </base-container>
@@ -14,11 +15,13 @@
 <script>
 import TheCounter from '@/components/layout/TheCounter.vue';
 import ChangeCounter from '@/components/ChangeCounter.vue';
+import FavoriteValue from '@/components/FavoriteValue.vue';
 
 export default {
     components: {
         TheCounter,
-        ChangeCounter
+        ChangeCounter,
+        FavoriteValue
     },
     computed: {
         counter(){

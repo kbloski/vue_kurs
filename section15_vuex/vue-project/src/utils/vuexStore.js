@@ -19,6 +19,15 @@ export const store = createStore({
             this.state.counter -= payload;
         },
     },
+    getters: {
+        finalCounter(state){
+            return state.counter * 2
+        },
+        normalizedCounter(state, getters){
+            const finalCounter = getters.finalCounter
+            return finalCounter > 0 ? finalCounter : 0
+        }
+    }
 });
 
 // mutations: {
