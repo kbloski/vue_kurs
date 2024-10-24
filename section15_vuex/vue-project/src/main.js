@@ -1,6 +1,6 @@
 import { createApp } from "vue";
 import { router } from "./utils/router.js";
-import { store } from "./utils/vuexStore.js";
+import store from "./store/index.js";
 
 import App from "./App.vue";
 import BaseContainer from "./components/base/BaseContainer.vue";

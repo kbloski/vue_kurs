@@ -14,19 +14,21 @@ import { mapActions } from 'vuex';
 
 export default {
   methods: {
-    ...mapActions(['increase', 'increment']),
+    ...mapActions('numbers', ['increase', 'increment','decrement']),
     add(value) {
-      this.$store.commit("increment", value);
+      // this.$store.commit("increment", value);
+      this.increment(value)
     },
     minus(value) {
-      this.$store.commit("decrement", value);
+      // this.$store.commit("decrement", value);
+      this.decrement( value )
     },
     addAsync() {
     //   this.$store.dispatch({
     //     type: "increment",
     //     value: 10,
     //   });
-        this.increment()
+        this.increment(1)
     },
     increaseM(value) {
     //   this.$store.dispatch("increase", value);
