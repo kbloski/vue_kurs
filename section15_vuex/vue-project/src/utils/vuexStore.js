@@ -20,6 +20,8 @@ export const store = createStore({
             this.state.counter -= payload;
         },
     },
+
+    // Dispatch mogą robić to samo co mutacje ale działając asynchronicznie, jednak nie powinieneś bezpośrednio z wnętrza akcji manipulować state
     actions: {
         increment( context ){
             setTimeout( ()=>{
@@ -27,9 +29,11 @@ export const store = createStore({
             }, 400)
         },
         increase( context, payload){
+            console.log( context )
             context.commit( 'increment', payload)
         }
     },
+
     getters: {
         finalCounter(state){
             return state.counter * 2
