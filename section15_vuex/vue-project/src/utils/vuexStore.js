@@ -36,8 +36,10 @@ export const store = createStore({
             console.log( context )
             context.commit( 'increment', payload)
         },
-        login( context, payload){
-            context.commit( 'toggleLogged', payload)
+        setAuth( context, payload){
+            setTimeout( ()=>{ 
+                context.commit( 'toggleLogged', payload)
+            }, 500)
         }
     },
 

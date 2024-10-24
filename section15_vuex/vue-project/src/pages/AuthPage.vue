@@ -1,9 +1,9 @@
 <template>
     <base-container>
-        <h1>Auth</h1>
-        <h2>Logged: </h2>
-        <button v-if="!isLogged" @click="login(true)">Login</button>
-        <button v-if="isLogged" @click="login(false)">Logout</button>
+        <h1>Auth Async 0.4s</h1>
+        <h2>Logged: {{ isLogged }}</h2>
+        <button v-if="!isLogged" @click="setAuth(true)">Login</button>
+        <button v-if="isLogged" @click="setAuth(false)">Logout</button>
     </base-container>
 </template>
 
@@ -14,7 +14,7 @@ export default {
         ...mapGetters(['isLogged'])
     },
     methods: {
-        ...mapActions(['login'])
+        ...mapActions(['setAuth'])
     }
 }
 </script>
