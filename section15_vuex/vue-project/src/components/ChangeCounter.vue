@@ -4,14 +4,17 @@
     <button @click="minus(1)">Minus 1</button>
     <button @click="add(1)">Add 1</button>
     <button @click="add(2)">Add 2</button>
-    <button @click="addAsync(10)">Add async 10</button>
-    <button @click="increase(2)">Increase 2</button>
+    <button @click="addAsync(10)">Add async 1</button>
+    <button @click="increaseM(2)">Increase 2</button>
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 export default {
   methods: {
+    ...mapActions(['increase', 'increment']),
     add(value) {
       this.$store.commit("increment", value);
     },
@@ -19,13 +22,15 @@ export default {
       this.$store.commit("decrement", value);
     },
     addAsync(value) {
-      this.$store.dispatch({
-        type: "increment",
-        value: 10,
-      });
+    //   this.$store.dispatch({
+    //     type: "increment",
+    //     value: 10,
+    //   });
+        this.increment()
     },
-    increase(value) {
-      this.$store.dispatch("increase", value);
+    increaseM(value) {
+    //   this.$store.dispatch("increase", value);
+        this.increase(value)
     },
   },
 };
