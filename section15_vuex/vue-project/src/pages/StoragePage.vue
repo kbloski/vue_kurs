@@ -21,8 +21,8 @@
 
 <script>
 import TheCounter from '@/components/layout/TheCounter.vue';
-import ChangeCounter from '@/components/ChangeCounter.vue';
-import FavoriteValue from '@/components/FavoriteValue.vue';
+import ChangeCounter from '@/components/layout/ChangeCounter.vue';
+import FavoriteValue from '@/components/layout/FavoriteValue.vue';
 
 export default {
     components: {
