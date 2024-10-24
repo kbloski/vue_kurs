@@ -10,14 +10,25 @@ export const store = createStore({
     },
 
     // Mutacje (mutations) w Vuex to mechanizm, który służy do zmieniania stanu w store (centralnym magazynie danych w Vue.js). Mutacje są jedynym sposobem na bezpośrednią modyfikację stanu w Vuex. Każda mutacja definiuje synchroniczną operację, która zmienia stan i jest wywoływana za pomocą funkcji commit.
+    // Mutacje muszą być synchroniczne, nie mogą wykonywać kodu asynchronicznego, w tym pomagają actions
     mutations: {
         increment(state, payload) {
             // this.state.counter++;
             this.state.counter += payload;
         },
-        decrement(state, payload) {
+        decrement(_, payload) {
             this.state.counter -= payload;
         },
+    },
+    actions: {
+        increment( context ){
+            setTimeout( ()=>{
+                context.commit('increment', 1);
+            }, 400)
+        },
+        increase( context, payload){
+            context.commit( 'increment', payload)
+        }
     },
     getters: {
         finalCounter(state){
