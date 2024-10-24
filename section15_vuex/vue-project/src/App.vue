@@ -1,18 +1,21 @@
 <template>
   <div>
+    <router-view></router-view>
+  </div>
+  <!-- <div>
     <h1>Init vuex project</h1>
     <BaseCmp></BaseCmp>
-  </div>
+  </div> -->
 </template>
 
 <script>
-import BaseCmp from './components/BaseCmp.vue'
+// import BaseCmp from './components/BaseCmp.vue'
 
 export default {
-  components: {
-    BaseCmp
-  },
-  data(){
-  }
+  // components: {
+  //   BaseCmp
+  // },
+  // data(){
+  // }
 }
 </script>
