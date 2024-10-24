@@ -2,10 +2,6 @@
   <div>
     <router-view></router-view>
   </div>
-  <!-- <div>
-    <h1>Init vuex project</h1>
-    <BaseCmp></BaseCmp>
-  </div> -->
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <base-container>
         <h2>Example component </h2>
-    </div>
+    </base-container>
 </template>

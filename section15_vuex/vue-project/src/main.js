@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { createApp } from 'vue'
 import App from './App.vue'
+import BaseContainer from './components/base/BaseContainer.vue';
 
 import VuexInfo from './pages/VuexInfo.vue';
 
@@ -12,6 +13,7 @@ const router = createRouter({
 });
 
 const appVue = createApp(App)
+appVue.component('base-container', BaseContainer)
 
 appVue.use( router );
 
