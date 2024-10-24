@@ -6,6 +6,9 @@
       Co to stan (state) - To po prostu dane których potrzebuje twoja aplikacja oraz dane
       które mają wpływ na to, co użytkownik widzi na ekranie
     </p>
+    <p>
+      Jest podobny do localStorage, po prostu jest globalnym magazynem danych dla aplikacji
+    </p>
   </base-container>
 </template>
 

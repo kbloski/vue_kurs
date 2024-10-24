@@ -1,17 +1,16 @@
 <template>
   <div>
+    <the-navigation></the-navigation>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-// import BaseCmp from './components/BaseCmp.vue'
+import TheNavigation from './components/layout/TheNavigation.vue';
 
 export default {
-  // components: {
-  //   BaseCmp
-  // },
-  // data(){
-  // }
+  components: {
+    TheNavigation
+  },
 }
 </script>
