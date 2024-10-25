@@ -1,5 +1,10 @@
 <template>
     <div>
-        Coaches list
+        <section>
+            FILTER
+        </section>
+        <section>
+            LIST OF COACHES
+        </section>
     </div>
 </template>

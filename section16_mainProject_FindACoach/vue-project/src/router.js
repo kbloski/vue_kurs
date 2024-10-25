@@ -8,6 +8,7 @@ import NotFound from "./pages/NotFound.vue";
 
 const router = createRouter({
     history: createWebHistory(),
+    // linkActiveClass: 'class-css-name',
     routes: [
         { path: "/", redirect: "/coaches" },
         { path: "/coaches", component: CoachesList },
