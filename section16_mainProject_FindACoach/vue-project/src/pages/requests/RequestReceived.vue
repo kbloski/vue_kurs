@@ -1,5 +1,5 @@
 <template>
     <div>
-        HomePage
+        Request Received
     </div>
 </template>
