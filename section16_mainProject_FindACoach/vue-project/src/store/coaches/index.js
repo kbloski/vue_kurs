@@ -7,7 +7,8 @@ const coachModule = {
     namespaced: true,
     state(){
         return {
-            coaches: [...coaches]
+            userIdCoach: false,
+            coaches: [...coaches],
         }
     },
     mutations: coachMutations,

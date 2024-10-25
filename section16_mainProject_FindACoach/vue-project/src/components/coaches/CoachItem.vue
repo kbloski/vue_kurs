@@ -1,5 +1,6 @@
 <template>
   <li>
+    {{ id }}
     <h3>{{ fullName }}</h3>
     <h4>{{ rate }} $/hour</h4>
     <div>
