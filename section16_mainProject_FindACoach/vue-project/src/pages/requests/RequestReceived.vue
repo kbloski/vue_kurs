@@ -1,5 +1,5 @@
 <template>
     <div>
-        Request Received
+        REQUEST
     </div>
 </template>
