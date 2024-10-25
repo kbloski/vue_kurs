@@ -72,13 +72,16 @@ export default {
     };
   },
   methods: {
-    validateForm() {
+    clearValidate(){
       this.formIsValid = true;
       this.firstName.isValid = true;
       this.lastName.isValid = true;
       this.description.isValid = true;
       this.rate.isValid = true;
       this.areas.isValid = true;
+    },
+    validateForm() {
+      this.clearValidate();
 
       if (this.firstName.val === "") {
         this.firstName.isValid = false;
