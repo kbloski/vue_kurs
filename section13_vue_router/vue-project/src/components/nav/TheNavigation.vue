@@ -27,7 +27,8 @@ export default {
       this.$emit('set-page', page);
     },
     redirectTeam(){
-      this.$router.push('/teams')
+      // this.$router.replace('/teams') // podmienia adres dzięki czemu nie jest on dostępny w historii przeglądarki
+      this.$router.push('/teams') // redirect
     }
   },
 };
