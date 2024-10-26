@@ -12,7 +12,8 @@
                     <input type="password" id="password" v-model.trim="password" />
                 </div>
                 <p v-if="!isValid">Please provide email and password</p>
-                <base-button>Login</base-button>
+                <base-button v-if="!isLoading">Login</base-button>
+                <p v-if="isLoading">Loading...</p>
             </form>
         </base-card>
     </section>
@@ -20,24 +21,49 @@
 
 <script>
 export default {
-    data(){
+    data() {
         return {
-            login: '',
-            password: '',
-            isValid: true
-        }
+            login: "admin",
+            password: "admin",
+            isValid: true,
+            isLoading: false,
+        };
+    },
+    computed: {
+        isLoggedIn() {
+            return this.$store.getters["auth/isLoggedIn"];
+        },
     },
     methods: {
-        validationData(){
+        validationData() {
             this.isValid = true;
-            if ( !this.login.length || !this.password.length) this.isValid = false;
+            if (!this.login.length || !this.password.length) {
+                this.isValid = false;
+            }
         },
-        submitForm(){
+        async submitForm() {
             this.validationData();
-    
-        }
-    }
-}
+            if (!this.isValid) return;
+
+            this.isLoading = true;
+
+            const loginData = {
+                login: this.login,
+                password: this.password,
+            };
+
+            try {
+                await this.$store.dispatch("auth/login", loginData);
+            } catch (err) {
+                null;
+            } finally {
+                this.isLoading = false;
+            }
+
+            if (this.isLoggedIn) this.$router.push("/dashboard");
+        },
+    },
+};
 </script>
 
 <style scoped>
