@@ -20,7 +20,7 @@ export default {
             const result = await fetchLogin(payload);
             if (result) context.commit('setAuthUser', result);
         },
-        logout( context, payload){
+        logout( context){
             context.commit('setAuthUser', null)
         }
     },
