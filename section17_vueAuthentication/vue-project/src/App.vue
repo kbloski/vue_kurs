@@ -11,11 +11,26 @@
 
 <script>
 import TheNavigation from './components/layout/TheNavigation.vue';
+import { mapGetters } from 'vuex';
 
 export default {
   components: {
     TheNavigation
-  } 
+  } ,
+  created(){
+    this.$store.dispatch('auth/autoLogin')
+  },
+  computed: {
+    ...mapGetters('auth', ['isLoggedIn'])
+  },
+  watch: {
+    isLoggedIn(value){
+      // console.log('isLoggedIn')
+      if (this.$route.path === '/login' && value) this.$router.push('/dashboard')
+
+      if (this.$route.path === '/login' && !value) this.$router.push('/login')
+    }
+  }
 }
 </script>
 

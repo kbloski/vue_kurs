@@ -1,35 +1,47 @@
 import { fetchLogin } from "@/api/db";
+const localUserKey = 'authUser';
 
 export default {
     namespaced: true,
-    data(){
+    data() {
         return {
             authUser: null,
             token: null,
-            tokenExperience: null
-        }
+            tokenExperience: null,
+        };
     },
     mutations: {
-        setAuthUser( state, payload ){
+        setAuthUser(state, payload) {
             state.authUser = payload;
-        }
+        },
     },
     actions: {
-        async login( context, payload){
-            context.commit('setAuthUser', null);
-            const result = await fetchLogin(payload);
-            if (result) context.commit('setAuthUser', result);
+        autoLogin(context) {
+            const localUser = JSON.parse(
+                localStorage.getItem(localUserKey)
+            );
+            context.dispatch('login', localUser)
         },
-        logout( context){
-            context.commit('setAuthUser', null)
-        }
+
+        async login(context, payload) {
+            const result = await fetchLogin(payload);
+
+            if (result){
+                context.commit("setAuthUser", result);
+                localStorage.setItem(localUserKey, JSON.stringify(result))
+            } 
+        },
+        logout(context) {
+            context.commit("setAuthUser", null);
+            localStorage.setItem(localUserKey, null);
+        },
     },
     getters: {
-        authUser( state ){
-            return state.authUser
+        authUser(state) {
+            return state.authUser;
         },
-        isLoggedIn( state, getters ){
+        isLoggedIn(state, getters) {
             return !!getters.authUser;
         },
-    }
-}
+    },
+};

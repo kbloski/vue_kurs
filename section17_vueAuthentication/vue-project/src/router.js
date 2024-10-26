@@ -10,13 +10,14 @@ const router = createRouter({
         {
             path: "/login",
             component: UserAuth,
-            beforeEnter(to, from, next) {
-                const isLogged = store.getters["auth/isLoggedIn"];
-                if (isLogged) {
-                    return next("/dashboard");
-                }
-                next();
-            },
+            // beforeEnter(to, from, next) {
+            //     const isLogged = store.getters["auth/isLoggedIn"];
+            //     console.log( isLogged )
+            //     if (isLogged) {
+            //         return next("/dashboard");
+            //     }
+            //     next();
+            // },
         },
         { path: "/dashboard", component: Dashboard },
     ],
@@ -24,7 +25,9 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
     const isLogged = store.getters["auth/isLoggedIn"];
-    if (to.path === "/dashboard" && !isLogged) next("/login");
+    if (to.path === "/dashboard" && !isLogged) return next("/login");
+    
+    if(to.path === '/login' && isLogged) return next('/dashboard')
     next();
 });
 
