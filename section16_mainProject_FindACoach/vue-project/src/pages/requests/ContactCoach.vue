@@ -35,7 +35,13 @@ export default {
                 return;
             }
 
-            
+            const formData = {
+              email: this.email,
+              message: this.message,
+              coachId: this.$route.params.id
+            }
+            this.$store.dispatch('requests/contactCoach', formData)
+            console.log( this.$store.state)
         }
     }
 }

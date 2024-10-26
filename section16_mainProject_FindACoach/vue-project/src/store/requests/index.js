@@ -1,17 +1,17 @@
-import requestsMutations from './mutations.js';
-import requestsActions from './actions.js';
-import requestsGetters from './getters.js';
+import mutations from './mutations.js';
+import actions from './actions.js';
+import getters from './getters.js';
 
 const requestsModule = {
     namespaced: true,
     state(){
         return {
-
+            requests: []
         }
     },
-    mutations: requestsMutations,
-    actions: requestsActions,
-    getters: requestsGetters
+    mutations,
+    actions,
+    getters
 }
 
 export default requestsModule
