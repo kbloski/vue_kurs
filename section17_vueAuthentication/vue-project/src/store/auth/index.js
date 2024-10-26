@@ -5,7 +5,8 @@ export default {
     data(){
         return {
             authUser: null,
-            token: null
+            token: null,
+            tokenExperience: null
         }
     },
     mutations: {
