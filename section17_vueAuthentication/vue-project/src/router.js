@@ -1,11 +1,13 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Login from "./pages/Login.vue";
+import UserAuth from "./pages/UserAuth.vue";
 
 const router = createRouter({
     history: createWebHistory(),
     routes: [
         { path: '/', redirect: '/login'},
-        { path: '/login', component: Login}
+        { path: '/login', component: UserAuth},
+        { path: '/dashboar', component: null},
+
     ]
 })
 
