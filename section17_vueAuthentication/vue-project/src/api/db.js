@@ -14,10 +14,14 @@ const users = [
 
 export function fetchLogin( userData ){
     return new Promise( (resolve, reject)=> {
-        setTimeout(()=>{
-            const userExist = users.filter( u => u.login === userData.login && u.password === userData.password )[0];
-            resolve(userExist)
-        },800)
+        try {
+            setTimeout(()=>{
+                const userExist = users.filter( u => u.login === userData.login && u.password === userData.password )[0];
+                resolve(userExist)
+            },800);
+        } catch (err){
+            resolve( err )
+        }
     })
 
     
