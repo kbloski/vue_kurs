@@ -17,7 +17,7 @@ export function fetchLogin( userData ){
         setTimeout(()=>{
             const userExist = users.filter( u => u.login === userData.login && u.password === userData.password )[0];
             resolve(userExist)
-        },1200)
+        },800)
     })
 
     
