@@ -1,7 +1,8 @@
 <template>
     <div>
         <h1>Computed and Watchers</h1>
-        <h2>FullName (computed): {{ fullName }}</h2>
+        <h2>Review with conosle.log()</h2>
+        <h3>FullName (computed): {{ fullName }}</h3>
         <div>
             <label>First Name</label>
             <input type="text" id="firstname" v-model="firstName"/>
@@ -28,7 +29,11 @@ export default {
 
         // WATCH
         watch( fullName, (newVal, oldVal)=>{
-            console.log("Fullname is changed from " + oldVal + ' to ' + newVal)
+            console.log("Fullname watch:  from " + oldVal + ' to ' + newVal)
+        })
+
+        watch( [firstName, lastName] , (newVal, oldVal) => {
+            console.log(' watch([firstName, lastName], () => {} )', newVal, oldVal)
         })
 
         return {
