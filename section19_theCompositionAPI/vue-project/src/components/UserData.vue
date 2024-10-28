@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { computed } from 'vue';
+import { computed, inject} from 'vue';
 
 export default {
     props: ['firstName', 'lastName', 'age'],
@@ -18,11 +18,15 @@ export default {
             return props.firstName + ' ' + props.lastName
         })
 
-        // console.log( context )
+        // EMIT
         context.emit('save-data', 1);
+
+        // INJECT
+        const age = inject('userAge')
 
         return {
             fullname,
+            age
         }
     }
 }

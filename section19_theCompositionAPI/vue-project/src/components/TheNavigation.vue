@@ -3,7 +3,7 @@
         <li><router-link to="/data">Data - Refs & Reactive</router-link></li>
         <li><router-link to="/methods">Methods</router-link></li>
         <li><router-link to="/computed">Computed & Watch & Template ( V-model & Refs )</router-link></li>
-        <li><router-link to="/props">Props & Emit</router-link></li>
+        <li><router-link to="/props">Props & Emit & ProvedeInject</router-link></li>
     </ul>
 </template>
 

@@ -4,14 +4,13 @@
         <user-data 
             :first-name="firstname" 
             :last-name="lastname" 
-            :age="age"
             @save-data="showEmitData"
         ></user-data>
     </div>
 </template>
 
 <script>
-import { reactive, ref, toRefs } from "vue";
+import { reactive, ref, toRefs, provide } from "vue";
 import UserData from "../components/UserData.vue";
 
 export default {
@@ -23,18 +22,19 @@ export default {
             name: "Kamil",
             surname: "Błoński",
         });
-        const age = ref(20);
-
+        const age = ref(20)
 
         function showEmitData( data ){
             console.log('emit save-data: ' + data)
         }
 
+        // PROVIDE
+        provide('userAge', age)
+
         const user = toRefs(userdata);
         return {
             firstname: user.name,
             lastname: user.surname,
-            age,
             showEmitData
         };
     },
