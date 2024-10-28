@@ -1,7 +1,10 @@
+import { defineAsyncComponent } from "vue";
 import { createRouter, createWebHistory } from "vue-router";
 import UserAuth from "./pages/UserAuth.vue";
-import Dashboard from "./pages/Dashboard.vue";
+// import Dashboard from "./pages/Dashboard.vue";
 import store from "./store/index.js";
+
+const Dashboard = defineAsyncComponent(() => import("./pages/Dashboard.vue"));
 
 const router = createRouter({
     history: createWebHistory(),

@@ -11,16 +11,22 @@ const users = [
     },
 ];
 
-
-export function fetchLogin( userData ){
-    return new Promise( (resolve, reject)=> {
+export function fetchLogin(userData) {
+    return new Promise((resolve, reject) => {
         try {
-            setTimeout(()=>{
-                const userExist = users.filter( u => u.login === userData.login && u.password === userData.password )[0];
-                resolve(userExist)
-            },800);
-        } catch (err){
-            resolve( err )
+            setTimeout(() => {
+                if (userData) {
+                    const userExist = users.filter(
+                        (u) =>
+                            u.login === userData.login &&
+                            u.password === userData.password
+                    )[0];
+                    return resolve(userExist);
+                }
+                return undefined;
+            }, 800);
+        } catch (err) {
+            resolve(err);
         }
-    })
+    });
 }
