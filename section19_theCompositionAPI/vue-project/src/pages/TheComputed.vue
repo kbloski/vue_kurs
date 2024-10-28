@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Computed</h1>
+        <h1>Computed and Watchers</h1>
         <h2>FullName (computed): {{ fullName }}</h2>
         <div>
             <label>First Name</label>
@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { ref, computed } from 'vue';
+import { ref, computed, watch} from 'vue';
 
 export default {
     setup(){
@@ -24,6 +24,10 @@ export default {
         // COMPUTED VALUES
         const fullName = computed( function(){
             return firstName.value + ' ' + lastName.value
+        })
+
+        watch( fullName, ()=>{
+            console.log("Fullname is changed")
         })
 
         return {

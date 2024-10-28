@@ -2,7 +2,7 @@
     <ul>
         <li><router-link to="/refs">Refs & Reactive</router-link></li>
         <li><router-link to="/methods">Methods</router-link></li>
-        <li><router-link to="/computed">Computed</router-link></li>
+        <li><router-link to="/computed">Computed & Watch</router-link></li>
     </ul>
 </template>
 
