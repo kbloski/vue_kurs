@@ -1,8 +1,8 @@
 <template>
     <ul>
-        <li><router-link to="/refs">Refs & Reactive</router-link></li>
+        <li><router-link to="/data">Data - Refs & Reactive</router-link></li>
         <li><router-link to="/methods">Methods</router-link></li>
-        <li><router-link to="/computed">Computed & Watch</router-link></li>
+        <li><router-link to="/computed">Computed & Watch & Template ( V-model & Refs )</router-link></li>
     </ul>
 </template>
 

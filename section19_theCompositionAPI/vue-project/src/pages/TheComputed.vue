@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Computed and Watchers</h1>
+        <h1>Computed and Watchers and Template</h1>
         <h2>Review with conosle.log()</h2>
         <h3>FullName (computed): {{ fullName }}</h3>
         <div>
@@ -9,8 +9,9 @@
         </div>
         <div>
             <label>Last Name</label>
-            <input type="text" id="secondname" v-model="lastName"/>
+            <input type="text" id="secondname" ref="lastNameInput"/>
         </div>
+        <button @click="setLastName">Set Last Name</button>
     </div>
 </template>
 
@@ -21,25 +22,37 @@ export default {
     setup(){
         const firstName = ref('Kamil');
         const lastName = ref('Błoński');
-
+        
         // COMPUTED VALUES
         const fullName = computed( function(){
             return firstName.value + ' ' + lastName.value
         })
-
+        
         // WATCH
         watch( fullName, (newVal, oldVal)=>{
             console.log("Fullname watch:  from " + oldVal + ' to ' + newVal)
         })
-
         watch( [firstName, lastName] , (newVal, oldVal) => {
             console.log(' watch([firstName, lastName], () => {} )', newVal, oldVal)
         })
-
+        
+        // Refs
+        const lastNameInput = ref(null)
+        
+        function setLastName(){
+            const value = lastNameInput.value.value
+            console.log('setLastName', value)
+            lastName.value = value;
+        }
+        
         return {
             firstName,
             lastName,
-            fullName
+            fullName,
+
+            // Refs
+            setLastName,
+            lastNameInput
         }
     }
 }
