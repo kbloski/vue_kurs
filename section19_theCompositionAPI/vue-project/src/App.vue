@@ -1,14 +1,18 @@
 <template>
   <div>
-    <the-refs></the-refs>
+    <div>
+      Navigation
+      <the-navigation></the-navigation>
+    </div>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import TheRefs from './components/TheRefs.vue';
+import TheNavigation from './components/TheNavigation.vue';
 export default {
   components: {
-    TheRefs
+    TheNavigation
   }
 }
 </script>
