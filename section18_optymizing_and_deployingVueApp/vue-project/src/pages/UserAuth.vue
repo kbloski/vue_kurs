@@ -1,11 +1,6 @@
 <template>
     <section>
         <base-card>
-            <h2>Async component base-dialog</h2>
-            <base-button @click="activateDialog">Show test dialog</base-button>
-            <base-dialog :show="showDialog" @close="closeDialog">Testowy base dialog</base-dialog>
-        </base-card>
-        <base-card>
             <h2>Login</h2>
             <form @submit.prevent="submitForm">
                 <div class="form-control">
@@ -32,7 +27,6 @@ export default {
             password: "admin",
             isValid: true,
             isLoading: false,
-            showDialog: false
         };
     },
     computed: {
@@ -41,13 +35,6 @@ export default {
         },
     },
     methods: {
-        activateDialog(){
-            console.log( this.showDialog)
-            this.showDialog = true
-        },
-        closeDialog(){
-            this.showDialog = false
-        },
         validationData() {
             this.isValid = true;
             if (!this.login.length || !this.password.length) {
