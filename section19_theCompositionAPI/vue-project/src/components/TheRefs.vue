@@ -6,6 +6,7 @@
         <h4>{{ school }} {{ status }}</h4>
         <h4>{{ description.school }} {{ description.status }}</h4>
         <h5> {{ reactiveObject.item1 }} {{ reactiveObject.item2 }}</h5>
+        <h5> {{ item1 }} {{ item2 }}</h5>
     </div>
 </template>
 
@@ -13,6 +14,9 @@
 import { 
     reactive, // for object
     ref,   // for all kind of values
+    isReactive,
+    isRef,
+    toRefs
 } from "vue";
 
 export default {
@@ -29,6 +33,8 @@ export default {
             item2: 'item2'
         }); // reactive for object
 
+        console.log( 'uAge', isRef(uAge), isRef(uAge.value));
+        console.log( 'reactiveObjec', isReactive(reactiveObject), isReactive(reactiveObject.value))
 
         setTimeout( ()=>{
             uName.value = 'Milblo'
@@ -46,6 +52,8 @@ export default {
             reactiveObject.item2 = "IM2"
         }, 1000)
 
+        // const objToRef = reactiveObject;
+        const objToRef = toRefs( reactiveObject);
         return {
             name: uName,
             surname: uSurname,  // not reactive
@@ -53,7 +61,9 @@ export default {
             status: uDescription.value.status, // not reactive
             school: uDescription.value.school,  // not reactive
             description: uDescription,
-            reactiveObject
+            reactiveObject,
+            item1: objToRef.item1,
+            item2: objToRef.item2
         };
     },
     // data(){
