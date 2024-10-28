@@ -26,8 +26,9 @@ export default {
             return firstName.value + ' ' + lastName.value
         })
 
-        watch( fullName, ()=>{
-            console.log("Fullname is changed")
+        // WATCH
+        watch( fullName, (newVal, oldVal)=>{
+            console.log("Fullname is changed from " + oldVal + ' to ' + newVal)
         })
 
         return {
