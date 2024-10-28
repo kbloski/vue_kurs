@@ -10,7 +10,7 @@ import BaseCard from "./components/ui/BaseCard.vue";
 
 const BaseDialog = defineAsyncComponent( ()=> {
     return import('./components/ui/BaseDialog.vue')
-});
+}); 
 
 const vueApp = createApp(App);
 
