@@ -6,6 +6,7 @@ const TheMethods = defineAsyncComponent( () => import('./pages/TheMethods.vue'))
 const TheComputed = defineAsyncComponent( ()=> import('./pages/TheComputed.vue'))
 const TheProps = defineAsyncComponent( ()=> import('./pages/TheProps.vue'))
 const TheHooks = defineAsyncComponent( ()=> import('./pages/TheHooks.vue'))
+const TheProgramingRouter = defineAsyncComponent( ()=> import('./pages/TheProgramingRouter.vue'))
 
 const router = createRouter({
     history: createWebHistory(),
@@ -16,6 +17,7 @@ const router = createRouter({
         { path: '/computed', component: TheComputed},
         { path: '/props', component: TheProps},
         { path: '/hooks', component: TheHooks},
+        { path: '/route', component: TheProgramingRouter, props: true},
     ]
 })
 

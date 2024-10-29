@@ -5,6 +5,7 @@
         <li><router-link to="/computed">Computed & Watch & Template ( V-model & Refs )</router-link></li>
         <li><router-link to="/props">Props & Emit & ProvedeInject</router-link></li>
         <li><router-link to="/hooks">Hooks</router-link></li>
+        <li><router-link to="/route">Programing Router && Vuex</router-link></li>
     </ul>
 </template>
 
