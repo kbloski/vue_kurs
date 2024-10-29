@@ -41,7 +41,7 @@ export default {
         // const enteredSearchTerm = ref('');
         // const activeSearchTerm = ref('');
 
-        // const availableUsers = computed(function () {
+        // const availableItems = computed(function () {
         //   let users = [];
         //   if (activeSearchTerm.value) {
         //     users = props.users.filter((usr) =>
@@ -66,14 +66,13 @@ export default {
         // }
 
         const { enteredSearchTerm, availableItems, updateSearch } = useSearch( props.users, "fullName" );
-        const availableUsers = availableItems
 
         const sorting = ref(null);
         const displayedUsers = computed(function () {
             if (!sorting.value) {
-                return availableUsers.value;
+                return availableItems.value;
             }
-            return availableUsers.value.slice().sort((u1, u2) => {
+            return availableItems.value.slice().sort((u1, u2) => {
                 if (sorting.value === "asc" && u1.fullName > u2.fullName) {
                     return 1;
                 } else if (sorting.value === "asc") {
@@ -106,7 +105,7 @@ export default {
     //   };
     // },
     // computed: {
-    //   availableUsers() {
+    //   availableItems() {
     //     let users = [];
     //     if (this.activeSearchTerm) {
     //       users = this.users.filter((usr) =>
@@ -119,9 +118,9 @@ export default {
     //   },
     //   displayedUsers() {
     //     if (!this.sorting) {
-    //       return this.availableUsers;
+    //       return this.availableItems;
     //     }
-    //     return this.availableUsers.slice().sort((u1, u2) => {
+    //     return this.availableItems.slice().sort((u1, u2) => {
     //       if (this.sorting === 'asc' && u1.fullName > u2.fullName) {
     //         return 1;
     //       } else if (this.sorting === 'asc') {
