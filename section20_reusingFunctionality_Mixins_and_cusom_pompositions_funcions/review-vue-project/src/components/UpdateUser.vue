@@ -1,6 +1,6 @@
 <template>
     <div>
-        <user-alert v-if="alertIsVisible" title="Update a User?" @close="hideAlert">
+        <user-alert v-if="alertIsVisible" :title="alertTitle" @close="hideAlert">
             <p>Do you want to continue with updateing a user?</p>
         </user-alert>
         <section>
@@ -20,12 +20,14 @@ export default {
         UserAlert,
     },
     setup() {
-        const [alertIsVisible, showAlert, hideAlert] = useAlert();
+        const alertTitle = ref('Update User?')
+        const [alertIsVisible, showAlert, hideAlert] = useAlert(true);
 
         return {
             alertIsVisible,
             showAlert,
-            hideAlert
+            hideAlert,
+            alertTitle
         };
     },
 };
