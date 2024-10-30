@@ -30,6 +30,8 @@ import { ref, computed } from "vue";
 import useSearch from "../hooks/search.js";
 
 import UserItem from "./UserItem.vue";
+import { toRef } from "vue";
+import { toRefs } from "vue";
 
 export default {
     components: {
@@ -65,7 +67,8 @@ export default {
         //   enteredSearchTerm.value = val;
         // }
 
-        const { enteredSearchTerm, availableItems, updateSearch } = useSearch( props.users, "fullName" );
+        const { users } = props
+        const { enteredSearchTerm, availableItems, updateSearch } = useSearch(users, "fullName" );
 
         const sorting = ref(null);
         const displayedUsers = computed(function () {
