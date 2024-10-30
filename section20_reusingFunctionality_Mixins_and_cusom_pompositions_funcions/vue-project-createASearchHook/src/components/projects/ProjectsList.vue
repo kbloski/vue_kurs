@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { computed, watch, toRefs, onMounted } from 'vue';
+import { computed, watch, toRefs } from 'vue';
 import useSearch from '../hooks/search.js';
 
 import ProjectItem from './ProjectItem.vue';
@@ -24,19 +24,17 @@ export default {
   },
   props: ['user'],
   setup(props) {
-    const { user } = toRefs(props);
-    const projects = computed( () => {
-      return user.value ? user.value.projects : []
-    });
-    const { enteredSearchTerm, availableItems, updateSearch } = useSearch( projects.value, "title" );
+    const { user } = toRefs( props )
+    const projects = computed( () => user.value ? user.value.projects :  [] )
+    
+    const { enteredSearchTerm, availableItems, updateSearch } = useSearch( projects , "title" );
 
     const hasProjects = computed(function () {
-      return props.user.projects && availableItems.value.length > 0;
+      return user.value.projects && availableItems.value.length > 0;
     });
 
-
     watch(user, function () {
-      enteredSearchTerm.value = '';
+      updateSearch("")
     });
 
     return {
