@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory, routerKey} from 'vue-router'
 
-import TeamsList from "../pages/TeamsList.vue";
+// import TeamsList from "../pages/TeamsList.vue";
+const TeamList = () => import('../pages/TeamsList.vue') // dynamic load pages
 import UsersList from "../pages/UsersList.vue";
 import TeamMembers from "../components/teams/TeamMembers.vue";
 import NotFound from "../pages/NotFound.vue";
