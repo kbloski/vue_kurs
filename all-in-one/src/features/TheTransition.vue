@@ -16,7 +16,7 @@
                 <!-- 
                  Musimy w tym przypadku używać v-if i v-else-if, tylko wtedy vue ma pewność, że tylko jeden z elementów zostanie wyświetlony 
                 -->
-                <h2 v-if="titleIsVisible">Transition</h2>
+                <h4 v-if="titleIsVisible">Transition in vue</h4>
             </transition>
             <transition name="para">
                 <p v-if="paraIsVisible">

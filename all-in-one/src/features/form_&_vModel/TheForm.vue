@@ -7,7 +7,7 @@ const age = ref(3);
 const language = ref("");
 const emoticons = ref([]);
 const topSpeed = ref(100);
-const uppercase = ref('')
+const uppercase = ref('test')
 
 function onSubmit(event: Event) {}
 
@@ -22,15 +22,16 @@ function onChange(e: Event) {
 
 <template>
     <form @submit.prevent="onSubmit">
+      <div>Obsuga formularza</div>
         <pre>
-      InputValues:
-      name - {{ name }}
-      age - {{ age }}
-      language - {{ language }}
-      emoticons - {{ emoticons }}
-      topSpeed - {{ topSpeed }}
-      uppercase - {{ uppercase }}
-    </pre
+          InputValues:
+          name - {{ name }}
+          age - {{ age }}
+          language - {{ language }}
+          emoticons - {{ emoticons }}
+          topSpeed - {{ topSpeed }}
+          uppercase - {{ uppercase }}
+        </pre
         >
         <div>
             <div>Name <input type="text" v-model.trim="name" @blur="onBlur" /></div>
