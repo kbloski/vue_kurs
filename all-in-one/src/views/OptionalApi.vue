@@ -1,9 +1,12 @@
 <script lang="ts">
-import TheForm from '../components/TheForm.vue';
+import TheForm from '../features/form_&_vModel/TheForm.vue';
 
 export default {
   // emits: [],
   // props: [],
+  components: {
+    TheForm
+  },
   data(){
     return {
       name: 'Kamil',
@@ -16,15 +19,15 @@ export default {
       return this.name + ' ' + this.surname;
     }
   },
-  // methods: {
+  methods: {
     
-  // },
-  // watch: {
+  },
+  watch: {
 
-  // },
-  // provide(){
+  },
+  provide: {
 
-  // },
+  },
   // inject(){
 
   // },
@@ -38,6 +41,6 @@ export default {
 </script>
 
 <template>
-  <TheForm />
+  <the-form />
   <div>computed - {{ fullname }}</div>
 </template>
