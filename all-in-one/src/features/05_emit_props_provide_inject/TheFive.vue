@@ -1,12 +1,11 @@
 <template>
     <the-component name="Kamil" @emit-active="emitFunction"/>
-    test
 </template>
 
 <script lang="ts" setup>
-import { provide } from 'vue';
-import TheComponent from './TheComponent.vue';
 
+import TheComponent from './TheComponent.vue';
+import { provide } from 'vue';
 provide('provideVal', "This value is from provide function.")
 
 function emitFunction( data : object){
@@ -14,4 +13,23 @@ function emitFunction( data : object){
 }
 
 
+// composition api
+// import TheComponent from './TheComponent.vue';
+
+// export default {
+//     components: {
+//         TheComponent
+//     },
+//     provide() {
+//         return {
+//             provideVal: 'This value is from provide function'
+//         };
+//     },
+//     methods: {
+//         // Możemy bardziej precyzyjnie określić typ danych, które funkcja przyjmuje
+//         emitFunction(data: Record<string, any>) {
+//             alert("Emit function: " + JSON.stringify(data));
+//         }
+//     }
+// }
 </script>

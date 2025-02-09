@@ -3,6 +3,12 @@
 export default {
   // emits: [],
   // props: [],
+  // provide(){
+  //   return {
+  //       val: 'Provided value'
+  //   }
+  // },
+  // inject: [ 'val'],
   components: {
     // TheForm
   },
@@ -29,10 +35,6 @@ export default {
       console.log( newVal, oldVal)
     }
   },
-  // provide: {  // },
-  // inject(){},
-
-
 
   // DODATKOWE HOOKI
   // beforeCreate() {},
@@ -45,18 +47,20 @@ export default {
 </script>
 
 <template>
-  <h1>OptionalAPI</h1>
+  <div>
+    <h1>OptionalAPI</h1>
 
-  <!-- date() & methods -->
-  <div>
-    Counter
-    <button @click="increment">+</button>
-    {{ counter }}
-    <button @click="decrement">-</button>
-  </div>
-  <!-- computed -->
-  <div>
-    {{ counterMessage }}
+    <!-- date() & methods -->
+    <div>
+      Counter
+      <button @click="increment">+</button>
+      {{ counter }}
+      <button @click="decrement">-</button>
+    </div>
+    <!-- computed -->
+    <div>
+      {{ counterMessage }}
+    </div>
   </div>
 
 

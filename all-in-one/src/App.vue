@@ -5,9 +5,11 @@ import TheKeepAlive from './features/02_keep_alive/TheKeepAlive.vue';
 import TheNavigation from './ui/TheNavigation.vue';
 import TheSlot from './features/04_slots_&_templates/TheSlot.vue';
 import TheTransition from './features/03_transition/TheTransition.vue';
-
 import { ref } from 'vue';
 import TheFive from './features/05_emit_props_provide_inject/TheFive.vue';
+import TheTeleport from './features/06_teleport/TheTeleport.vue';
+import ThePiniaStore from './features/piniaStore/ThePiniaStore.vue';
+
 
 const isBasicVisible = ref(true);
 
@@ -42,7 +44,10 @@ function toggleVisible(){
       </div>
       <h2>Props & Emit & Provide & Inject</h2>
       <the-five />
-
+      <h2>The Teleport</h2>
+      <TheTeleport />
+      <h2>The Pinia store</h2>
+      <ThePiniaStore />
 
       <h2>VueRouter</h2>
       <the-navigation />
