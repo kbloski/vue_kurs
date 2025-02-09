@@ -1,11 +1,13 @@
 <script lang="ts" setup>
 import { useCounterStore } from '@/stores/counter';
+import { ref } from 'vue';
 
 // Composition API
 const store = useCounterStore();
 
 function incrementStoreCount(){
     store.increment()
+    array.value.unshift('0')
 }
 
 // Optional APi
@@ -25,5 +27,5 @@ function incrementStoreCount(){
 
 <template>
     <button @click="incrementStoreCount">Increment</button>
-    {{ store.count }} / {{ store.doubleCount }}
+    {{ store.count }} / {{ store.doubleCount }} 
 </template>
