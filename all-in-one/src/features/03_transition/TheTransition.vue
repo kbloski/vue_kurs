@@ -42,6 +42,27 @@
                 -->
             </transition>
         </div>
+
+        <h4>Transition list</h4>
+        <button @click="addUser">Add user Kamil</button>
+        <ul>
+            <transition-group tag="ul" name="user-list">
+                <li v-for="user in users" :key="user" @click="removeUser(user)">{{ user }}</li>
+            </transition-group>
+        </ul>
+
+
+
+        <h4>Transition buttons togggle</h4>
+        <div>
+            <transition 
+                name="buttons-animation"
+                mode="in-out"
+            >
+                <button v-if="toggButtBol" @click="toggleButtons">True</button>
+                <button v-else="!toggButtBol" @click="toggleButtons">False</button>
+            </transition>
+        </div>
     </div>
 </template>
 
@@ -51,7 +72,9 @@ export default {
         return {
             titleIsVisible: true,
             paraIsVisible: true,
-            exampIsVisible: false
+            exampIsVisible: false,
+            users: ['Kamil','Adam','Micha','Piotr'],
+            toggButtBol: true
         }
     },
     methods: {
@@ -66,6 +89,15 @@ export default {
         },
         funBeforeEnter(){
             console.log('Function before enter local')
+        },
+        addUser(){
+            this.users.unshift('Kamil')
+        },
+        removeUser(){
+            this.users.splice(0,1)
+        },
+        toggleButtons(){
+            this.toggButtBol = !this.toggButtBol
         }
     }
 }
@@ -109,5 +141,34 @@ export default {
     to {
         opacity: 1
     }
+}
+
+/* Transition group */
+.user-list-enter-from {
+    transform: translateY(-30px);
+}
+
+.user-list-leave-active {
+    transition: all .3s ease;
+}
+.user-list-leave-to {
+    transform: scaleY(0);
+}
+.user-list-enter-active {
+    transition: all .3s ease;    
+}
+
+/* Toggle buttons */
+.buttons-animation-enter-from {
+    transform: scaleY(0);
+}
+.buttons-animation-enter-active {
+    transition: all .3s ease;
+}
+.buttons-animation-leave-active {
+    transition: all .3s ease;
+}
+.buttons-animation-leave-to {
+    transform: scaleY(0);
 }
 </style>

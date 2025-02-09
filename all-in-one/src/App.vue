@@ -1,14 +1,14 @@
 <script setup lang="ts">
 
-import TheTransition from './features/03_transition/TheTransition.vue';
-
 import TheForm from './features/01_form_&_vModel/TheForm.vue';
 import TheKeepAlive from './features/02_keep_alive/TheKeepAlive.vue';
 import TheNavigation from './ui/TheNavigation.vue';
 import TheSlot from './features/04_slots_&_templates/TheSlot.vue';
+import TheTransition from './features/03_transition/TheTransition.vue';
+
 import { ref } from 'vue';
 
-const isBasicVisible = ref(false);
+const isBasicVisible = ref(true);
 
 function toggleVisible(){
   isBasicVisible.value = !isBasicVisible.value
@@ -45,7 +45,38 @@ function toggleVisible(){
       <h2>VueRouter</h2>
       <the-navigation />
       <hr />
-      <RouterView />
+
+      <!--  -->
+      <RouterView v-slot="slotProps">
+        <Transition>
+          <component :is="slotProps.Component" />
+        </Transition>
+      </RouterView>
     </div>
   </Main>
 </template>
+
+<style scoped>
+.v-enter-from {
+    opacity: 0;
+}
+.v-enter-active {
+    transition: all .3s ease;
+}
+.v-enter-to {
+    opacity: 1;
+}
+
+.v-leave-from {
+  opacity: 1;
+}
+
+.v-leave-active {
+  transition: all .3s ease;
+}
+
+.v-leave-to {
+  opacity: 0;
+}
+
+</style>
