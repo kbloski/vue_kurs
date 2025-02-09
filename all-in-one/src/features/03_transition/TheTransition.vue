@@ -43,7 +43,6 @@
             </transition>
         </div>
 
-        <h4>Transition list</h4>
         <button @click="addUser">Add user Kamil</button>
         <ul>
             <transition-group tag="ul" name="user-list">

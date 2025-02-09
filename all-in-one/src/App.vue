@@ -7,6 +7,7 @@ import TheSlot from './features/04_slots_&_templates/TheSlot.vue';
 import TheTransition from './features/03_transition/TheTransition.vue';
 
 import { ref } from 'vue';
+import TheFive from './features/05_emit_props_provide_inject/TheFive.vue';
 
 const isBasicVisible = ref(true);
 
@@ -39,14 +40,15 @@ function toggleVisible(){
           <template v-slot:footer>Stopka</template>
         </the-slot>
       </div>
-      
+      <h2>Props & Emit & Provide & Inject</h2>
+      <the-five />
 
 
       <h2>VueRouter</h2>
       <the-navigation />
       <hr />
 
-      <!--  -->
+      <!-- Transtions with router-view -->
       <RouterView v-slot="slotProps">
         <Transition>
           <component :is="slotProps.Component" />
@@ -78,5 +80,4 @@ function toggleVisible(){
 .v-leave-to {
   opacity: 0;
 }
-
 </style>
