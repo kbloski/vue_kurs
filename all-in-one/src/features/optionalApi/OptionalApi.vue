@@ -1,8 +1,26 @@
 <script lang="ts">
 
+// interface MyComponentProps {
+//   name: string;
+//   age: number;
+// }
+
 export default {
-  // emits: [],
-  // props: [],
+  // props: {
+  //   // Określanie typu poprzez interfejs
+  //   name: {
+  //     type: String,
+  //     required: true
+  //   },
+  //   age: {
+  //     type: Number,
+  //     required: false,
+  //     default: 18
+  //   }
+  // } as MyComponentProps, // Przypisanie interfejsu
+
+
+  // emits: ['emit1','emit2'],
   // provide(){
   //   return {
   //       val: 'Provided value'
