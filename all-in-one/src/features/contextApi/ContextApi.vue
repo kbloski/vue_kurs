@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { provide, inject, defineProps, defineEmits, ref, computed, watch } from 'vue';
+import { provide, inject, defineProps, defineEmits, ref, reactive, computed, watch } from 'vue';
 
 // const props = defineProps<{
 //   name?: string
@@ -11,6 +11,12 @@ import { provide, inject, defineProps, defineEmits, ref, computed, watch } from 
 
 // provide('key', 'value')
 // const key = inject('key')
+
+const person = reactive({
+  name: 'Kamil',
+  surname: 'Błoński',
+  age: 3
+})
 
 const counter = ref(0)
 

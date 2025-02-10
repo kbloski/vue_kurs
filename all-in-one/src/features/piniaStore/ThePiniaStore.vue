@@ -7,7 +7,6 @@ const store = useCounterStore();
 
 function incrementStoreCount(){
     store.increment()
-    array.value.unshift('0')
 }
 
 // Optional APi

@@ -17,11 +17,6 @@ function toggleVisible(){
   isBasicVisible.value = !isBasicVisible.value
 }
 
-
-
-  // ref & reactive 
-  // Teleport to.....
-
 </script>
 
 <template>
